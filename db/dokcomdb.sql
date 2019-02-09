@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2019 at 09:13 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Feb 09, 2019 at 05:41 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,6 +54,29 @@ INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `medicalaid`
+--
+
+CREATE TABLE `medicalaid` (
+  `MedicalaidId` int(10) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
+  `MedicalaidName` varchar(150) NOT NULL,
+  `MedicalaidType` varchar(150) NOT NULL,
+  `MemberShipNumber` varchar(50) NOT NULL,
+  `PrimaryMember` varchar(150) NOT NULL,
+  `PrimaryMemberId` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicalaid`
+--
+
+INSERT INTO `medicalaid` (`MedicalaidId`, `PatientId`, `MedicalaidName`, `MedicalaidType`, `MemberShipNumber`, `PrimaryMember`, `PrimaryMemberId`) VALUES
+(1, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `medication`
 --
 
@@ -97,7 +120,6 @@ CREATE TABLE `patient` (
   `AddressLine3` varchar(225) NOT NULL,
   `City` varchar(225) NOT NULL,
   `PostCode` varchar(225) NOT NULL,
-  `GlobalKey` varchar(225) NOT NULL,
   `CreateUserId` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` varchar(225) NOT NULL,
@@ -109,11 +131,11 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `AddressLine2`, `AddressLine3`, `City`, `PostCode`, `GlobalKey`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Boskruin', '12 Panther Road', 'Johannesburg', '2100', 'cce1d13f-eef7-11e8-9ddc-f48e38e878a3', '1', '2018-11-23 10:13:55', '1', '2018-11-23 10:20:07', 1),
-('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Green Stones', 'News Cafe', '1 Main Road', 'Johannesburg', '2100', 'c89b38be-792b-4f88-b44d-8370e03250aa', '1', '2018-11-28 22:01:23', '1', '2018-11-28 22:01:23', 1),
-('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '00000000000', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Road', '212', 'Johannesburg', '2194', 'ceb9d58d-f4d3-11e8-bc75-f48e38e878a3', '1', '2018-11-30 21:11:57', '1', '2018-11-30 21:35:51', 1),
-('cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Maboneng', '1 Main Road', 'Johannesburg', '2100', '34691b76-d6a1-4ecf-9503-64b065c92c0f', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
+INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `AddressLine2`, `AddressLine3`, `City`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Boskruin', '12 Panther Road', 'Johannesburg', '2100', '1', '2018-11-23 10:13:55', '1', '2018-11-23 10:20:07', 1),
+('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Green Stones', 'News Cafe', '1 Main Road', 'Johannesburg', '2100', '1', '2018-11-28 22:01:23', '1', '2018-11-28 22:01:23', 1),
+('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '00000000000', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Road', '212', 'Johannesburg', '2194', '1', '2018-11-30 21:11:57', '1', '2018-11-30 21:35:51', 1),
+('cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Maboneng', '1 Main Road', 'Johannesburg', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
 
 -- --------------------------------------------------------
 
@@ -234,6 +256,12 @@ ALTER TABLE `appointment`
   ADD PRIMARY KEY (`AppointmentId`);
 
 --
+-- Indexes for table `medicalaid`
+--
+ALTER TABLE `medicalaid`
+  ADD PRIMARY KEY (`MedicalaidId`);
+
+--
 -- Indexes for table `medication`
 --
 ALTER TABLE `medication`
@@ -272,6 +300,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `medicalaid`
+--
+ALTER TABLE `medicalaid`
+  MODIFY `MedicalaidId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `prescription`
