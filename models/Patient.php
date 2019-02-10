@@ -41,6 +41,30 @@ class Patient{
         return $stmt;
 
     }
+    //Get patient by id
+    public function getById($PatientId)
+    {
+      
+        $query = "
+        select patient.PatientId, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,
+        medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
+        count(appointment.AppointmentId) as NumAppointments 
+        from patient 
+        left join  medicalaid on medicalaid.PatientId = patient.PatientId   
+        left join appointment on appointment.PatientId = patient.PatientId        
+        where patient.PatientId = ?		
+		GROUP by patient.PatientId
+        ";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute(Array($PatientId));
+
+        return $stmt;
+
+    }
 
 
 }
