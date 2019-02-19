@@ -66,23 +66,7 @@ class Patient{
 
     }
 
-    public function GetPatientPrescriptions($PatientId)
-    {
-         $query = "            
-            SELECT * 
-            FROM prescription
-            WHERE patientId = ?
-            ORDER BY createdate
-         ";
-
-         //prepare the query statement PDO
-         $stmt = $this->conn->prepare($query);
-
-         //Executed the prepared statement
-         $stmt->execute(Array($PatientId));
-
-         return $stmt;
-    }
+    
 
 
 }
