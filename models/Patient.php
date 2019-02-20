@@ -96,50 +96,54 @@ class Patient
         $ModifyUserId,
         $StatusId
     ) {
-        if ($this->getByEmail($email) > 0) {
-            return "User with email address (:" . $email . ") already exists";
+        if ($this->getByEmail($Email) > 0) {
+            return "User with email address (:" . $Email . ") already exists";
         }
         $query = "INSERT INTO patient (
                                          PatientId
                                         ,FirstName
-                                        ,Surname,
-                                        ,IdNumber,
-                                        ,DOB,
-                                        ,Gender,
-                                        ,Email,
-                                        ,Cellphone,
-                                        ,AddressLine1,
-                                        ,AddressLine2,
-                                        ,AddressLine3,
-                                        ,City,
-                                        ,PostCode,
-                                        ,CreateUserId,
-                                        ,ModifyUserId,
+                                        ,Surname
+                                        ,IdNumber
+                                        ,DOB
+                                        ,Gender
+                                        ,Email
+                                        ,Cellphone
+                                        ,AddressLine1
+                                        ,AddressLine2
+                                        ,AddressLine3
+                                        ,City
+                                        ,PostCode
+                                        ,CreateUserId
+                                        ,ModifyUserId
                                         ,StatusId)
-                    VALUES (GUUD(),?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
+                    VALUES (UUID(),?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
                    ";
+        try {
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute(array(
+                $FirstName,
+                $Surname,
+                $IdNumber,
+                $DOB,
+                $Gender,
+                $Email,
+                $Cellphone,
+                $AddressLine1,
+                $AddressLine2,
+                $AddressLine3,
+                $City,
+                $PostCode,
+                $CreateUserId,
+                $ModifyUserId,
+                $StatusId
+            ));
+        } catch (Exception $e) {
+            return $e;
+        }
 
-        $stmt = $this->conn->prepare($query);
-        return $stmt->execute(array(
-            $FirstName,
-            $Surname,
-            $IdNumber,
-            $DOB,
-            $Gender,
-            $Email,
-            $Cellphone,
-            $AddressLine1,
-            $AddressLine2,
-            $AddressLine3,
-            $City,
-            $PostCode,
-            $CreateUserId,
-            $ModifyUserId,
-            $StatusId
-        ));
     }
 
-    
+
 
 
 }
