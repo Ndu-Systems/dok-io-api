@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2019 at 05:41 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Feb 20, 2019 at 06:14 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,8 +48,8 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`, `FromTime`, `ToTime`, `Description`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-('0', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-12-1', '2018-12-1', '8:30', '10:30', 'Check Wound', '1', '2018-11-30 21:35:43', '1', '2018-11-30 21:35:43', 1),
-('1', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-11-23', '2018-11-23', '12:30', '14:30', 'Check Up ', '1', '2018-11-23 10:30:37', '1', '2018-11-23 10:30:37', 1);
+('53820417-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-12-1', '2018-12-1', '8:30', '10:30', 'Check Wound', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:35:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:35:43', 1),
+('53839ca7-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-11-23', '2018-11-23', '12:30', '14:30', 'Check Up ', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:30:37', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:30:37', 1);
 
 -- --------------------------------------------------------
 
@@ -58,21 +58,26 @@ INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`,
 --
 
 CREATE TABLE `medicalaid` (
-  `MedicalaidId` int(10) NOT NULL,
+  `MedicalaidId` varchar(225) NOT NULL,
   `PatientId` varchar(225) NOT NULL,
   `MedicalaidName` varchar(150) NOT NULL,
   `MedicalaidType` varchar(150) NOT NULL,
   `MemberShipNumber` varchar(50) NOT NULL,
   `PrimaryMember` varchar(150) NOT NULL,
-  `PrimaryMemberId` varchar(55) NOT NULL
+  `PrimaryMemberId` varchar(55) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `medicalaid`
 --
 
-INSERT INTO `medicalaid` (`MedicalaidId`, `PatientId`, `MedicalaidName`, `MedicalaidType`, `MemberShipNumber`, `PrimaryMember`, `PrimaryMemberId`) VALUES
-(1, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195');
+INSERT INTO `medicalaid` (`MedicalaidId`, `PatientId`, `MedicalaidName`, `MedicalaidType`, `MemberShipNumber`, `PrimaryMember`, `PrimaryMemberId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('482cb7da-34cd-11e9-8a5d-f48e38e878a3', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
 
@@ -96,9 +101,9 @@ CREATE TABLE `medication` (
 --
 
 INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
-('1', 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', '', '2019-02-01 21:49:25', '', 1),
-('2', 'Panado', 'Panado', '2018-11-23 12:19:11', '', '2019-02-01 21:49:25', '', 1),
-('3', 'Cleanzing Agent', 'Cleanzing Agent', '2018-11-30 21:29:49', '', '2019-02-01 21:49:25', '', 1);
+('2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2d708510-34cd-11e9-8a5d-f48e38e878a3', 'Panado', 'Panado', '2018-11-23 12:19:11', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2d708630-34cd-11e9-8a5d-f48e38e878a3', 'Cleanzing Agent', 'Cleanzing Agent', '2018-11-30 21:29:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
 
@@ -144,8 +149,9 @@ INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `
 --
 
 CREATE TABLE `prescription` (
-  `prescriptionId` int(10) NOT NULL,
+  `prescriptionId` varchar(225) NOT NULL,
   `patientId` varchar(225) NOT NULL,
+  `symptoms` varchar(225) NOT NULL,
   `diagnosis` text NOT NULL,
   `boolPreasure` varchar(150) NOT NULL,
   `pulseRate` varchar(150) NOT NULL,
@@ -160,10 +166,10 @@ CREATE TABLE `prescription` (
 -- Dumping data for table `prescription`
 --
 
-INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
-(1, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Flue', '100', '100', '2018-11-23 10:24:31', '', '2019-02-01 21:51:07', '', 1),
-(2, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Headaches', '50', '50', '2018-11-23 12:19:13', '', '2019-02-01 21:51:07', '', 1),
-(3, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', '', '2019-02-01 21:51:07', '', 1);
+INSERT INTO `prescription` (`prescriptionId`, `patientId`, `symptoms`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('210d4f40-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Flue', '100', '100', '2018-11-23 10:24:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2110a6e6-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Headaches', '50', '50', '2018-11-23 12:19:13', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2110a7eb-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
 
@@ -172,9 +178,9 @@ INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPre
 --
 
 CREATE TABLE `prescription_medication_drug` (
-  `id` int(10) NOT NULL,
-  `prescriptionId` int(10) NOT NULL,
-  `medicationId` int(10) NOT NULL,
+  `prescriptionMedicationId` varchar(225) NOT NULL,
+  `prescriptionId` varchar(225) NOT NULL,
+  `medicationId` varchar(225) NOT NULL,
   `unit` varchar(150) NOT NULL,
   `dosage` varchar(150) NOT NULL,
   `createdate` datetime NOT NULL,
@@ -188,10 +194,10 @@ CREATE TABLE `prescription_medication_drug` (
 -- Dumping data for table `prescription_medication_drug`
 --
 
-INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
-(1, 1, 1, '1', '3', '2018-11-23 10:24:31', '', '2019-02-01 21:51:57', '', 1),
-(2, 2, 2, '1', '3', '2018-11-23 12:19:14', '', '2019-02-01 21:51:57', '', 1),
-(3, 3, 3, '2', '0', '2018-11-30 21:33:25', '', '2019-02-01 21:51:57', '', 1);
+INSERT INTO `prescription_medication_drug` (`prescriptionMedicationId`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('73ebbbe0-34cd-11e9-8a5d-f48e38e878a3', '210d4f40-34cd-11e9-8a5d-f48e38e878a3', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '1', '3', '2018-11-23 10:24:31', '', '2019-02-01 21:51:57', '', 1),
+('73ee708f-34cd-11e9-8a5d-f48e38e878a3', '2110a6e6-34cd-11e9-8a5d-f48e38e878a3', '2d708510-34cd-11e9-8a5d-f48e38e878a3', '1', '3', '2018-11-23 12:19:14', '', '2019-02-01 21:51:57', '', 1),
+('73ee7184-34cd-11e9-8a5d-f48e38e878a3', '2110a7eb-34cd-11e9-8a5d-f48e38e878a3', '2d708630-34cd-11e9-8a5d-f48e38e878a3', '2', '0', '2018-11-30 21:33:25', '', '2019-02-01 21:51:57', '', 1);
 
 -- --------------------------------------------------------
 
@@ -243,7 +249,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `UserFlags`, `StatusId`) VALUES
-('1', 'doc@mail.com', 'doc@mail.com', 'pass', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', 2, 1);
+('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -283,7 +289,7 @@ ALTER TABLE `prescription`
 -- Indexes for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`prescriptionMedicationId`);
 
 --
 -- Indexes for table `statuses`
@@ -300,24 +306,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `medicalaid`
---
-ALTER TABLE `medicalaid`
-  MODIFY `MedicalaidId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `prescription`
---
-ALTER TABLE `prescription`
-  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `prescription_medication_drug`
---
-ALTER TABLE `prescription_medication_drug`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statuses`
