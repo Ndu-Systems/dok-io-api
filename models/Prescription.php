@@ -16,17 +16,37 @@ class Prescription{
     public $ModifyDate;
     public $ModifyUserId;
     public $StatusId;
+    public $drugs;
 
 
      //Constructor to DB
 
         public function __construct($db)
         {
-        $this->conn = $db;
+            $this->conn = $db;
         }
 
 
 
+    //Get all prescriptions
+    public function GetAll()
+    {
+       $query = "       
+       SELECT * 
+       FROM prescription
+       WHERE StatusId = ?
+       ORDER BY createdate
+       ";
+       //prepare query statement PDO
+       $stmt = $this->conn->prepare($query);
+
+       //Execute query
+       $stmt->execute(array(1));
+
+       return $stmt;
+    }
+
+    //Get prescriptions for a single patient
     public function GetPatientPrescriptions($PatientId)
     {
             $query = "            
@@ -44,5 +64,7 @@ class Prescription{
 
             return $stmt;
     }
+
+
 
 }
