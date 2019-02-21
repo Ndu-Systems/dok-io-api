@@ -21,11 +21,6 @@ if($result->rowCount()){
     $prescriptions  = $result->fetchAll(PDO::FETCH_ASSOC); 
 }
 
-<<<<<<< HEAD
-
-$outPut['Patient-Prescriptions'] = $prescriptions;
-=======
 $outPut = Array();
 $outPut['PatientPrescriptions'] = $prescriptions;
->>>>>>> c9582941b9405aa66420e286279e48128032dc9a
 echo json_encode($outPut);

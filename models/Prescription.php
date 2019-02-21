@@ -94,7 +94,7 @@ class Prescription{
                 $CreateUserId,
                 $ModifyUserId,      
                 $StatusId
-            ));){
+            ))){
                 return $conn->lastInsertId();
             }
 
