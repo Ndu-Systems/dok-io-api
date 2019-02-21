@@ -21,6 +21,7 @@ if($result->rowCount()){
         $prescription = new Prescription($db);
         $prescription->prescriptionId = $row->prescriptionId;
         $prescription->patientId = $row->patientId;
+        $prescription->symptoms = $row->symptoms;
         $prescription->diagnosis = $row->diagnosis;
         $prescription->boolPreasure = $row->boolPreasure;
         $prescription->pulseRate = $row->pulseRate;
@@ -32,11 +33,6 @@ if($result->rowCount()){
         $prescription->drugs = $medication->GetMedicationForPrescription($row->prescriptionId);        
         $output[] = $prescription;     
 
-    }
-    // $prescriptions = $result->fetchAll(PDO::FETCH_ASSOC);
-
+    }  
 }
-
-
-
 echo json_encode($output);

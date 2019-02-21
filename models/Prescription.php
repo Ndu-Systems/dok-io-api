@@ -8,6 +8,7 @@ class Prescription{
      //Properties here
     public $prescriptionId;
     public $patientId;
+    public $symptoms;
     public $diagnosis;
     public $boolPreasure;
     public $pulseRate;
@@ -63,6 +64,44 @@ class Prescription{
             $stmt->execute(Array($PatientId));
 
             return $stmt;
+    }
+
+    public function AddPrescription(
+        $patientId, 
+        $symptoms,
+        $diagnosis,
+        $boolPreasure ,
+        $pulseRate,
+        $CreateUserId,
+        $ModifyUserId,      
+        $StatusId
+    )
+    {
+        $query= "INSERT INTO prescription(prescriptionId, patientId, symptoms, diagnosis, boolPreasure, pulseRate, CreateUserId, ModifyUserId, StatusId) 
+                              VALUES (uuid(),?,?,?,?,?,?,?,?)";
+
+        try {
+
+            //prepare query statement PDO
+            $stmt = $this->conn->prepare($query);
+
+           if($stmt->execute(array(
+                $patientId, 
+                $symptoms,
+                $diagnosis,
+                $boolPreasure ,
+                $pulseRate,
+                $CreateUserId,
+                $ModifyUserId,      
+                $StatusId
+            ));){
+                return $conn->lastInsertId();
+            }
+
+        } catch (Exception $ex) {
+            return $ex;
+        }
+
     }
 
 
