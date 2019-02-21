@@ -21,5 +21,5 @@ if($result->rowCount()){
 }
 
 $outPut = Array();
-$outPut['Patient-Prescriptions'] = $prescriptions;
+$outPut['PatientPrescriptions'] = $prescriptions;
 echo json_encode($outPut);
