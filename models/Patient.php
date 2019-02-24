@@ -11,7 +11,7 @@ class Patient
     public $Email;
     public $Password;
 
-    //Constructor to DB
+    //Constructor to DB    
 
     public function __construct($db)
     {
@@ -96,7 +96,7 @@ class Patient
         $StatusId
     ) {
         if ($this->getByEmail($Email) > 0) {
-            return "User with email address (:" . $Email . ") already exists";
+            return "User with email address (" . $Email . ") already exists";
         }
         $query = "INSERT INTO patient (
                                          PatientId
