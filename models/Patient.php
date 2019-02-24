@@ -88,9 +88,8 @@ class Patient
         $Email,
         $Cellphone,
         $AddressLine1,
-        $AddressLine2,
-        $AddressLine3,
         $City,
+        $Province,
         $PostCode,
         $CreateUserId,
         $ModifyUserId,
@@ -109,14 +108,13 @@ class Patient
                                         ,Email
                                         ,Cellphone
                                         ,AddressLine1
-                                        ,AddressLine2
-                                        ,AddressLine3
                                         ,City
+                                        ,Province
                                         ,PostCode
                                         ,CreateUserId
                                         ,ModifyUserId
                                         ,StatusId)
-                    VALUES (UUID(),?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
+                    VALUES (UUID(),?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
@@ -129,9 +127,8 @@ class Patient
                 $Email,
                 $Cellphone,
                 $AddressLine1,
-                $AddressLine2,
-                $AddressLine3,
                 $City,
+                $Province,
                 $PostCode,
                 $CreateUserId,
                 $ModifyUserId,

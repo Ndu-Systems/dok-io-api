@@ -12,12 +12,11 @@ $Gender  = $data->Gender;
 $Email  = $data->Email;
 $Cellphone  = $data->Cellphone;
 $AddressLine1  = $data->AddressLine1;
-$AddressLine2  = $data->AddressLine2;
-$AddressLine3  = $data->AddressLine3;
 $City  = $data->City;
+$Province  = $data->Province;
 $PostCode  = $data->PostCode;
 $CreateUserId  = $data->CreateUserId;
-$ModifyUserId  = $data->ModifyUserId;
+$ModifyUserId  = $data->CreateUserId;
 $StatusId  = $data->StatusId;
 
 
@@ -42,9 +41,8 @@ $result = $user->add(
     $Email,
     $Cellphone,
     $AddressLine1,
-    $AddressLine2,
-    $AddressLine3,
     $City,
+    $Province,
     $PostCode,
     $CreateUserId,
     $ModifyUserId,
