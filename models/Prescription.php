@@ -47,6 +47,23 @@ class Prescription{
        return $stmt;
     }
 
+    //Get a prescription 
+    public function GetById($prescriptionId)
+    {
+        $query = "
+            SELECT * 
+            FROM prescription
+            WHERE prescriptionId = ?
+        ";
+
+        //prepare query statemnet PDO
+        $stmt = $this->conn->prepare($query);
+
+        //execute the prepare statement
+        $stmt->execute(array($prescriptionId));
+
+        return $stmt;
+    }
     //Get prescriptions for a single patient
     public function GetPatientPrescriptions($PatientId)
     {
@@ -61,7 +78,7 @@ class Prescription{
             $stmt = $this->conn->prepare($query);
 
             //Executed the prepared statement
-            $stmt->execute(Array($PatientId));
+            $stmt->execute(array($PatientId));
 
             return $stmt;
     }
