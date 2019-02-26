@@ -29,9 +29,6 @@ $db = $database->connect();
 
 $user = new Patient($db);
 
-
-
-
 $result = $user->add(
     $FirstName,
     $Surname,
