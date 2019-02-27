@@ -78,6 +78,20 @@ class Patient
         return $stmt->rowCount();
 
     }
+    //Get recently added user
+    public function getUserByEmail($email)
+    {
+
+        $query = "SELECT * FROM patient WHERE Email = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array($email));
+
+        if($stmt->rowCount()){
+           return $patient = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+    }
       //Add user 
     public function add(
         $FirstName,
@@ -118,7 +132,7 @@ class Patient
                    ";
         try {
             $stmt = $this->conn->prepare($query);
-            return $stmt->execute(array(
+            if($stmt->execute(array(
                 $FirstName,
                 $Surname,
                 $IdNumber,
@@ -133,7 +147,9 @@ class Patient
                 $CreateUserId,
                 $ModifyUserId,
                 $StatusId
-            ));
+            ))){
+                return $this->getUserByEmail($Email);
+            }
         } catch (Exception $e) {
             return $e;
         }
