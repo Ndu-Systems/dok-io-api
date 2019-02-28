@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2019 at 06:14 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Feb 28, 2019 at 07:08 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -54,6 +54,36 @@ INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactperson`
+--
+
+CREATE TABLE `contactperson` (
+  `ContactPersonId` varchar(225) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Relationship` varchar(50) NOT NULL,
+  `CellNumber` varchar(15) NOT NULL,
+  `CreateUserId` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `StatusId` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contactperson`
+--
+
+INSERT INTO `contactperson` (`ContactPersonId`, `PatientId`, `Name`, `Relationship`, `CellNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+('514b51ae-3a58-11e9-8de3-80fa5b45280e', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Bongani Mthembu', 'Father', '08253536168', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:20', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:20', 1),
+('67d7b033-3a58-11e9-8de3-80fa5b45280e', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Bongani Mthembu', 'Father', '08253536168', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:58', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:58', 1),
+('b5588cd0-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'dsad', 'dsad', '212213213', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:56:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:56:01', 1),
+('db12cd9d-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'daSD', 'DASD', 'DSADSA', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:04', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:04', 1),
+('f1e8a356-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'nDUMI', 'DSADD', 'DSADSA', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `medicalaid`
 --
 
@@ -77,7 +107,9 @@ CREATE TABLE `medicalaid` (
 --
 
 INSERT INTO `medicalaid` (`MedicalaidId`, `PatientId`, `MedicalaidName`, `MedicalaidType`, `MemberShipNumber`, `PrimaryMember`, `PrimaryMemberId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
-('482cb7da-34cd-11e9-8a5d-f48e38e878a3', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
+('482cb7da-34cd-11e9-8a5d-f48e38e878a3', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('9c869524-359d-11e9-a52e-80fa5b45280e', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Momentum', 'VIP Pack', 'M45784545424', 'Smith Sosibo', '92071445545454', '2019-02-21 07:57:46', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-21 07:57:46', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('ba395cea-3ac7-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', '32312', '434324', '3123@sadsa', '3123@sadsa', '3123@sadsa', '2019-02-27 21:41:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:41:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
 
@@ -121,9 +153,8 @@ CREATE TABLE `patient` (
   `Email` varchar(225) NOT NULL,
   `Cellphone` varchar(25) NOT NULL,
   `AddressLine1` varchar(225) NOT NULL,
-  `AddressLine2` varchar(225) NOT NULL,
-  `AddressLine3` varchar(225) NOT NULL,
   `City` varchar(225) NOT NULL,
+  `Province` varchar(55) NOT NULL,
   `PostCode` varchar(225) NOT NULL,
   `CreateUserId` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -136,11 +167,13 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `AddressLine2`, `AddressLine3`, `City`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Boskruin', '12 Panther Road', 'Johannesburg', '2100', '1', '2018-11-23 10:13:55', '1', '2018-11-23 10:20:07', 1),
-('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Green Stones', 'News Cafe', '1 Main Road', 'Johannesburg', '2100', '1', '2018-11-28 22:01:23', '1', '2018-11-28 22:01:23', 1),
-('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '00000000000', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Road', '212', 'Johannesburg', '2194', '1', '2018-11-30 21:11:57', '1', '2018-11-30 21:35:51', 1),
-('cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Maboneng', '1 Main Road', 'Johannesburg', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
+INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `City`, `Province`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+('3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith', 'Sosibo', '92071445545454', '14/07/1992', 'male', 'smith122@gmail.com', '0821457845', '215 End St', 'Durban', '', '4002', '1', '2019-02-20 15:27:16', '1', '2019-02-20 15:27:16', 1),
+('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Johannesburg', '', '2100', '1', '2018-11-23 10:13:55', '1', '2018-11-23 10:20:07', 1),
+('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Green Stones', 'Johannesburg', '', '2100', '1', '2018-11-28 22:01:23', '1', '2018-11-28 22:01:23', 1),
+('a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry', 'Hlongwana', '92071445545454', '14/07/1992', 'male', 'henry@mail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 1),
+('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '45454545', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Johannesburg', '', '2194', '1', '2018-11-30 21:11:57', '1', '2018-11-30 21:35:51', 1),
+('cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Johannesburg', '', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
 
 -- --------------------------------------------------------
 
@@ -260,6 +293,12 @@ INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `CreateUserId`, `
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`AppointmentId`);
+
+--
+-- Indexes for table `contactperson`
+--
+ALTER TABLE `contactperson`
+  ADD PRIMARY KEY (`ContactPersonId`);
 
 --
 -- Indexes for table `medicalaid`

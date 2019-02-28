@@ -10,7 +10,7 @@ $MemberShipNumber  = $data->MemberShipNumber;
 $PrimaryMember  = $data->PrimaryMember;
 $PrimaryMemberId  = $data->PrimaryMemberId;
 $CreateUserId  = $data->CreateUserId;
-$ModifyUserId  = $data->ModifyUserId;
+$ModifyUserId  = $CreateUserId;
 $StatusId = $data->StatusId;
 
 
