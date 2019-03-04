@@ -16,6 +16,7 @@ if (isset($data->patientId)) {
     $ModifyUserId = $CreateUserId;
     $drugs = $data->drugs;
     $StatusId = 1;
+    $prescriptionId = md5(time());
 
     // echo json_encode($data);
     //connect to db
@@ -27,6 +28,7 @@ if (isset($data->patientId)) {
     $prescriptionObj = new Prescription($db);
 
     $result = $prescriptionObj->AddPrescription(
+        $prescriptionId, 
         $patientId, 
         $symptoms,
         $diagnosis,
@@ -37,7 +39,9 @@ if (isset($data->patientId)) {
         $StatusId
     );
 
-    echo json_encode($result);
+   if($result == $prescriptionId){
+       // push the drugs to the db
+   }
 } else {
     echo json_encode("500 - internal server error");
 }

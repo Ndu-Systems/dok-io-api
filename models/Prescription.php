@@ -84,6 +84,7 @@ class Prescription{
     }
 
     public function AddPrescription(
+        $prescriptionId, 
         $patientId, 
         $symptoms,
         $diagnosis,
@@ -95,7 +96,7 @@ class Prescription{
     )
     {
         $query= "INSERT INTO prescription(prescriptionId, patientId, symptoms, diagnosis, boolPreasure, pulseRate, CreateUserId, ModifyUserId, StatusId) 
-                              VALUES (uuid(),?,?,?,?,?,?,?,?)";
+                              VALUES (?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -103,6 +104,7 @@ class Prescription{
             $stmt = $this->conn->prepare($query);
 
            if($stmt->execute(array(
+                $prescriptionId, 
                 $patientId, 
                 $symptoms,
                 $diagnosis,
@@ -112,7 +114,7 @@ class Prescription{
                 $ModifyUserId,      
                 $StatusId
             ))){
-                return $this->conn->lastInsertId();
+                return $prescriptionId;
             }
 
         } catch (Exception $ex) {
