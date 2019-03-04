@@ -1,6 +1,8 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/Prescription.php';
+include_once '../../models/Prescription_Drug.php';
+
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -28,20 +30,33 @@ if (isset($data->patientId)) {
     $prescriptionObj = new Prescription($db);
 
     $result = $prescriptionObj->AddPrescription(
-        $prescriptionId, 
-        $patientId, 
+        $prescriptionId,
+        $patientId,
         $symptoms,
         $diagnosis,
-        $boolPreasure ,
+        $boolPreasure,
         $pulseRate,
         $CreateUserId,
-        $ModifyUserId,      
+        $ModifyUserId,
         $StatusId
     );
 
-   if($result == $prescriptionId){
-       // push the drugs to the db
-   }
+    if ($result == $prescriptionId) {
+        // push the drugs to the db
+        foreach ($drugs as $drug) {
+            $result_drug =new Prescription_Drug($db);
+            $result_drug->add(
+                $prescriptionId, 
+                $drug->medicationId, 
+                $drug->unit, 
+                $drug->dosage, 
+                $CreateUserId,
+                $ModifyUserId ,
+                $StatusId
+            );
+        }
+        echo json_encode(true);
+    }
 } else {
     echo json_encode("500 - internal server error");
 }
