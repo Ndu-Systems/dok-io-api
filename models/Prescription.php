@@ -112,7 +112,7 @@ class Prescription{
                 $ModifyUserId,      
                 $StatusId
             ))){
-                return $conn->lastInsertId();
+                return $this->conn->lastInsertId();
             }
 
         } catch (Exception $ex) {
