@@ -56,5 +56,39 @@ class Medication
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
   }
-}
 
+
+  //Add  
+  public function add(
+    $medicationId,
+    $name,
+    $description,
+    $CreateUserId,
+    $ModifyUserId,
+    $StatusId
+  ) {
+    $query = "INSERT INTO medication (
+                medicationId ,
+                name ,
+                description ,
+                CreateUserId ,
+                ModifyUserId ,
+                StatusId
+                          )
+                  VALUES (?, ?, ?, ?,?,?)           
+                 ";
+    try {
+      $stmt = $this->conn->prepare($query);
+      return $stmt->execute(array(
+        $medicationId,
+        $name,
+        $description,
+        $CreateUserId,
+        $ModifyUserId,
+        $StatusId
+      ));
+    } catch (Exception $e) {
+      return $e;
+    }
+  }
+}
