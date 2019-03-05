@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2019 at 07:08 AM
+-- Generation Time: Mar 05, 2019 at 07:37 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -134,7 +134,7 @@ CREATE TABLE `medication` (
 
 INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
 ('2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
-('2d708510-34cd-11e9-8a5d-f48e38e878a3', 'Panado', 'Panado', '2018-11-23 12:19:11', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2d708510-34cd-45412-8a5d-f48e38e878a3', 'Panado', 'Panado', '2018-11-23 12:19:11', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2d708630-34cd-11e9-8a5d-f48e38e878a3', 'Cleanzing Agent', 'Cleanzing Agent', '2018-11-30 21:29:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:49:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
@@ -188,7 +188,7 @@ CREATE TABLE `prescription` (
   `diagnosis` text NOT NULL,
   `boolPreasure` varchar(150) NOT NULL,
   `pulseRate` varchar(150) NOT NULL,
-  `createdate` datetime NOT NULL,
+  `createdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `CreateUserId` varchar(225) NOT NULL,
   `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` varchar(225) NOT NULL,
@@ -202,7 +202,11 @@ CREATE TABLE `prescription` (
 INSERT INTO `prescription` (`prescriptionId`, `patientId`, `symptoms`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
 ('210d4f40-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Flue', '100', '100', '2018-11-23 10:24:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2110a6e6-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Headaches', '50', '50', '2018-11-23 12:19:13', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
-('2110a7eb-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
+('2110a7eb-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('738822e2cfc9af9cefcc5b44be4459e1', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Heavy Feet', 'Lack of blood flow', '85', '95', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:56', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('7fc8af2d5cfb0798dbcfa8468845b060', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Heavy Feet', 'Lack of blood flow', '85', '95', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:57', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('aed6f39c80310dc69e262612436ff7d4', 'fa095a49-353b-11e9-b04f-f48e38e878a3', 'Heavy Feet', 'Lack of blood flow', '85', '95', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:39:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('f64e7f584f110ca93538d7d81583127e', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Heavy Feet', 'Lack of blood flow', '85', '95', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
 -- --------------------------------------------------------
 
@@ -230,7 +234,44 @@ CREATE TABLE `prescription_medication_drug` (
 INSERT INTO `prescription_medication_drug` (`prescriptionMedicationId`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
 ('73ebbbe0-34cd-11e9-8a5d-f48e38e878a3', '210d4f40-34cd-11e9-8a5d-f48e38e878a3', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '1', '3', '2018-11-23 10:24:31', '', '2019-02-01 21:51:57', '', 1),
 ('73ee708f-34cd-11e9-8a5d-f48e38e878a3', '2110a6e6-34cd-11e9-8a5d-f48e38e878a3', '2d708510-34cd-11e9-8a5d-f48e38e878a3', '1', '3', '2018-11-23 12:19:14', '', '2019-02-01 21:51:57', '', 1),
-('73ee7184-34cd-11e9-8a5d-f48e38e878a3', '2110a7eb-34cd-11e9-8a5d-f48e38e878a3', '2d708630-34cd-11e9-8a5d-f48e38e878a3', '2', '0', '2018-11-30 21:33:25', '', '2019-02-01 21:51:57', '', 1);
+('73ee7184-34cd-11e9-8a5d-f48e38e878a3', '2110a7eb-34cd-11e9-8a5d-f48e38e878a3', '2d708630-34cd-11e9-8a5d-f48e38e878a3', '2', '0', '2018-11-30 21:33:25', '', '2019-02-01 21:51:57', '', 1),
+('a0046c63-3ebf-11e9-a159-80fa5b45280e', 'f64e7f584f110ca93538d7d81583127e', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '200ml', '3 tbl spoons a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('a004c5a1-3ebf-11e9-a159-80fa5b45280e', 'f64e7f584f110ca93538d7d81583127e', '2d708510-34cd-45412-8a5d-f48e38e878a3', '10 tablets', '1 tablet 3 times a day after meals', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('a0b9fd62-3ebf-11e9-a159-80fa5b45280e', '738822e2cfc9af9cefcc5b44be4459e1', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '200ml', '3 tbl spoons a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:56', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('a0ba335f-3ebf-11e9-a159-80fa5b45280e', '738822e2cfc9af9cefcc5b44be4459e1', '2d708510-34cd-45412-8a5d-f48e38e878a3', '10 tablets', '1 tablet 3 times a day after meals', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:56', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('a1209399-3ebf-11e9-a159-80fa5b45280e', '7fc8af2d5cfb0798dbcfa8468845b060', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '200ml', '3 tbl spoons a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:57', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('a120e5f0-3ebf-11e9-a159-80fa5b45280e', '7fc8af2d5cfb0798dbcfa8468845b060', '2d708510-34cd-45412-8a5d-f48e38e878a3', '10 tablets', '1 tablet 3 times a day after meals', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:53:57', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('ad85a457-3ebd-11e9-a159-80fa5b45280e', 'aed6f39c80310dc69e262612436ff7d4', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '200ml', '3 tbl spoons a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:39:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('ad85d922-3ebd-11e9-a159-80fa5b45280e', 'aed6f39c80310dc69e262612436ff7d4', '2d708510-34cd-45412-8a5d-f48e38e878a3', '10 tablets', '1 tablet 3 times a day after meals', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:39:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `que`
+--
+
+CREATE TABLE `que` (
+  `QuiID` int(11) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
+  `PatientName` varchar(100) NOT NULL,
+  `Status` int(5) NOT NULL,
+  `Createdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `que`
+--
+
+INSERT INTO `que` (`QuiID`, `PatientId`, `PatientName`, `Status`, `Createdate`, `CreateUserId`) VALUES
+(1, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-05 07:38:53', 'gewqeu587321e'),
+(2, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 1, '2019-03-05 07:41:06', 'gewqeu587321e'),
+(3, '3d84c984-3513-11e9-899b-80fa5b45280e', 'Ndumiso Mthembu', 1, '2019-03-05 08:17:30', 'gewqeu587321e'),
+(4, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 1, '2019-03-05 08:21:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(5, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 1, '2019-03-05 08:23:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(6, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 1, '2019-03-05 08:23:40', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(7, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 1, '2019-03-05 08:24:05', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(8, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 1, '2019-03-05 08:25:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
 
 -- --------------------------------------------------------
 
@@ -331,6 +372,12 @@ ALTER TABLE `prescription_medication_drug`
   ADD PRIMARY KEY (`prescriptionMedicationId`);
 
 --
+-- Indexes for table `que`
+--
+ALTER TABLE `que`
+  ADD PRIMARY KEY (`QuiID`);
+
+--
 -- Indexes for table `statuses`
 --
 ALTER TABLE `statuses`
@@ -345,6 +392,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `que`
+--
+ALTER TABLE `que`
+  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `statuses`
