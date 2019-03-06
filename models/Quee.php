@@ -44,25 +44,27 @@ class Quee
                    ";
         try {
             $stmt = $this->conn->prepare($query);
-            return $stmt->execute(array(
+            if ($stmt->execute(array(
                 $PatientId,
                 $PatientName,
                 $Status,
                 $CreateUserId
-            ));
+            ))) {
+                return $this->conn->lastInsertId();
+            }
         } catch (Exception $e) {
             return $e;
         }
     }
 
-      //update  
-      public function update(
+    //update  
+    public function update(
         $QuiID
     ) {
         $query = "UPDATE que SET Status = ? Where QuiID=? ";
         try {
             $stmt = $this->conn->prepare($query);
-            return $stmt->execute(array(2,$QuiID));
+            return $stmt->execute(array(2, $QuiID));
         } catch (Exception $e) {
             return $e;
         }

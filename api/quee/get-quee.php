@@ -13,12 +13,12 @@ $db = $database->connect();
 $quee = new Quee($db);
 
 $result = $quee->getActive();
+$outputList = Array();
 
 if($result->rowCount()){
-    $quee = $result->fetchAll(PDO::FETCH_ASSOC);
+    $outputList = $result->fetchAll(PDO::FETCH_ASSOC);
 }
-
-echo json_encode($quee);
+echo json_encode($outputList);
 
 
 
