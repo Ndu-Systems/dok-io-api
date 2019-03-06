@@ -56,7 +56,7 @@ if (isset($data->patientId)) {
                 $StatusId
             );
         }
-        echo json_encode(true);
+        echo json_encode($prescriptionId);
     }
 } else {
     echo json_encode("500 - internal server error");

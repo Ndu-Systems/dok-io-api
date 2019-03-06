@@ -71,7 +71,7 @@ class Prescription{
                 SELECT * 
                 FROM prescription
                 WHERE patientId = ?
-                ORDER BY createdate
+                ORDER BY createdate desc
             ";
 
             //prepare the query statement PDO
