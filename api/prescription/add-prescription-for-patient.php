@@ -18,7 +18,8 @@ if (isset($data->patientId)) {
     $ModifyUserId = $CreateUserId;
     $drugs = $data->drugs;
     $StatusId = 1;
-    $prescriptionId = md5(time());
+    // $prescriptionId = md5(time());
+    $prescriptionId = time();
 
     // echo json_encode($data);
     //connect to db

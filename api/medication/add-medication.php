@@ -9,7 +9,8 @@ $description  = $data->description;
 $CreateUserId  = $data->CreateUserId;
 $ModifyUserId  = $CreateUserId;
 $StatusId  = $data->StatusId;
-$medicationId = md5(time());
+// $medicationId = md5(time());
+$medicationId = time();
 
 
 

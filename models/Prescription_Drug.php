@@ -51,7 +51,7 @@ class Prescription_Drug
                 $StatusId
             ))){
                 // return $this->getUserByEmail($Email);
-                return true;
+               // return true;
             }
         } catch (Exception $e) {
             return $e;
