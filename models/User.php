@@ -24,7 +24,8 @@ class User{
       
         $query = "SELECT 
         UserId, 
-        Email 
+        Email ,
+        Username
         FROM 
         user 
         WHERE 
