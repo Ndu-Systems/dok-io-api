@@ -29,29 +29,35 @@ class Note
 
     //Add  
     public function add(
+        $NoteId,
         $PatientId,
-        $PatientName,
-        $Status,
-        $prescriptionGiven,
-        $CreateUserId
+        $Notes,
+        $CreateUserId,
+        $ModifyUserId,
+        $StatusId,
+        $prescriptionGiven
     ) {
         $query = "INSERT INTO note (
-                                        PatientId,
-                                        PatientName,
-                                        Status,
-                                        prescriptionGiven,
-                                        CreateUserId
+                                NoteId
+                                PatientId
+                                Notes
+                                CreateUserId
+                                ModifyUserId
+                                StatusId
+                                prescriptionGiven
                                         )
                     VALUES (?, ?, ?, ?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
             if ($stmt->execute(array(
+                $NoteId,
                 $PatientId,
-                $PatientName,
-                $Status,
-                $prescriptionGiven,
-                $CreateUserId
+                $Notes,
+                $CreateUserId,
+                $ModifyUserId,
+                $StatusId,
+                $prescriptionGiven
             ))) {
                 return $this->conn->lastInsertId();
             }
@@ -62,12 +68,33 @@ class Note
 
     //update  
     public function update(
-        $QuiID
+        $NoteId,
+        $PatientId,
+        $Notes,
+        $CreateUserId,
+        $ModifyUserId,
+        $StatusId,
+        $prescriptionGiven
     ) {
-        $query = "UPDATE que SET Status = ? Where QuiID=? ";
+        $query = "UPDATE note SET 
+               
+               PatientId =?
+               Notes =?
+               CreateUserId =?
+               ModifyUserId =?
+               StatusId =?
+               prescriptionGiven =?
+         Where NoteId =? ";
         try {
             $stmt = $this->conn->prepare($query);
-            return $stmt->execute(array(2, $QuiID));
+            return $stmt->execute(array(
+                $PatientId,
+                $Notes,
+                $CreateUserId,
+                $ModifyUserId,
+                $StatusId,
+                $prescriptionGiven, $NoteId
+            ));
         } catch (Exception $e) {
             return $e;
         }
