@@ -16,7 +16,7 @@ class Note
     public function getPatientNotes($PatientId)
     {
 
-        $query = "SELECT * FROM note WHERE PatientId =?";
+        $query = "SELECT * FROM notes WHERE PatientId =?";
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -37,16 +37,16 @@ class Note
         $StatusId,
         $prescriptionGiven
     ) {
-        $query = "INSERT INTO note (
-                                NoteId
-                                PatientId
-                                Notes
-                                CreateUserId
-                                ModifyUserId
-                                StatusId
+        $query = "INSERT INTO notes (
+                                NoteId,
+                                PatientId,
+                                Notes,
+                                CreateUserId,
+                                ModifyUserId,
+                                StatusId,
                                 prescriptionGiven
                                         )
-                    VALUES (?, ?, ?, ?)           
+                    VALUES (?, ?, ?, ?, ? ,? ,?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
@@ -59,7 +59,7 @@ class Note
                 $StatusId,
                 $prescriptionGiven
             ))) {
-                return $this->conn->lastInsertId();
+                return $NoteId;
             }
         } catch (Exception $e) {
             return $e;
@@ -76,7 +76,7 @@ class Note
         $StatusId,
         $prescriptionGiven
     ) {
-        $query = "UPDATE note SET 
+        $query = "UPDATE notes SET 
                
                PatientId =?
                Notes =?
