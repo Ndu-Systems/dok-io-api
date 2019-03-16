@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 08:46 AM
+-- Generation Time: Mar 16, 2019 at 08:53 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -185,7 +185,7 @@ CREATE TABLE `notes` (
   `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` varchar(225) NOT NULL,
   `StatusId` int(5) NOT NULL,
-  `prescriptionGiven` varchar(3) NOT NULL DEFAULT 'No'
+  `prescriptionGiven` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -193,8 +193,9 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`NoteId`, `PatientId`, `Notes`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`, `prescriptionGiven`) VALUES
-('1552721569', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'In some countries, wood fire flues are often built into a heat preserving construction within which the flue gases circulate over heat retaining bricks before release to the atmosphere. The heat retaining bricks are covered in a decorative material such as brick, tiles or stone. This flue gas circulation avoids the considerable heat loss to the chimney and outside air in conventional systems.', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 0, 'ceb'),
-('1552722379', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Materialize is a modern responsive CSS framework based on Material Design', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 'Yes');
+('1552721569', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'In some countries, wood fire flues are often built into a heat preserving construction within which the flue gases circulate over heat retaining bricks before release to the atmosphere. The heat retaining bricks are covered in a decorative material such as brick, tiles or stone. This flue gas circulation avoids the considerable heat loss to the chimney and outside air in conventional systems.', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 0, 0),
+('1552722379', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Materialize is a modern responsive CSS framework based on Material Design', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
+('1552722696', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Note 3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1);
 
 -- --------------------------------------------------------
 
