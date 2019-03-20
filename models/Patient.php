@@ -23,7 +23,7 @@ class Patient
     {
 
         $query = "
-        select patient.PatientId, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
+        select patient.PatientId,patient.DOB,patient.StatusId, patient.Province, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
         medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
         count(appointment.AppointmentId) as NumAppointments 
         from patient 
@@ -156,7 +156,72 @@ class Patient
 
     }
 
+    //Add Update User 
+    public function update(
+        $FirstName,
+        $Surname,
+        $IdNumber,
+        $DOB,
+        $Gender,
+        $Email,
+        $Cellphone,
+        $AddressLine1,
+        $City,
+        $Province,
+        $PostCode,
+        $CreateUserId,
+        $ModifyUserId,
+        $StatusId,
+        $PatientId
+    ) {
+        if ($this->getByEmail($Email) == 0) {
+            return "User with email address (" . $Email . ") DOES NOT EXITS";
+        }
+        $query = "UPDATE  patient  SET
+                                        FirstName = ?
+                                        ,Surname = ?
+                                        ,IdNumber = ?
+                                        ,DOB = ?
+                                        ,Gender = ?
+                                        ,Email = ?
+                                        ,Cellphone = ?
+                                        ,AddressLine1 = ?
+                                        ,City = ?
+                                        ,Province = ?
+                                        ,PostCode = ?
+                                        ,CreateUserId = ?
+                                        ,ModifyUserId = ?
+                                        ,StatusId = ?
+                                        WHERE PatientId=?
 
+                             
+                   ";
+        try {
+            $stmt = $this->conn->prepare($query);
+            if($stmt->execute(array(
+                $FirstName,
+                $Surname,
+                $IdNumber,
+                $DOB,
+                $Gender,
+                $Email,
+                $Cellphone,
+                $AddressLine1,
+                $City,
+                $Province,
+                $PostCode,
+                $CreateUserId,
+                $ModifyUserId,
+                $StatusId,
+                $PatientId
+            ))){
+                return $PatientId;
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
+
+    }
 
 
 }
