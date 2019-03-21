@@ -178,9 +178,7 @@ class Patient
         $StatusId,
         $PatientId
     ) {
-        if ($this->getByEmail($Email) == 0) {
-            return "User with email address (" . $Email . ") DOES NOT EXITS";
-        }
+        // I need to check if u not taking someones email
         $query = "UPDATE  patient  SET
                                         Title = ?
                                         ,FirstName = ?
