@@ -5,6 +5,7 @@ include_once '../../models/Patient.php';
 $data = json_decode(file_get_contents("php://input"));
 
 $FirstName  = $data->FirstName;
+$Title  = $data->Title;
 $Surname  = $data->Surname;
 $IdNumber  = $data->IdNumber;
 $DOB  = $data->DOB;
@@ -19,6 +20,11 @@ $CreateUserId  = $data->CreateUserId;
 $ModifyUserId  = $data->CreateUserId;
 $StatusId  = $data->StatusId;
 
+//check for email
+if($Email == ''){
+    $Email = time().'@doc-io.net';
+}
+
 
 
 //connect to db
@@ -30,6 +36,7 @@ $db = $database->connect();
 $user = new Patient($db);
 
 $result = $user->add(
+    $Title,
     $FirstName,
     $Surname,
     $IdNumber,

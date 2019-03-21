@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 08:53 AM
+-- Generation Time: Mar 21, 2019 at 05:15 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -195,7 +195,13 @@ CREATE TABLE `notes` (
 INSERT INTO `notes` (`NoteId`, `PatientId`, `Notes`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`, `prescriptionGiven`) VALUES
 ('1552721569', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'In some countries, wood fire flues are often built into a heat preserving construction within which the flue gases circulate over heat retaining bricks before release to the atmosphere. The heat retaining bricks are covered in a decorative material such as brick, tiles or stone. This flue gas circulation avoids the considerable heat loss to the chimney and outside air in conventional systems.', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:32:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 0, 0),
 ('1552722379', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Materialize is a modern responsive CSS framework based on Material Design', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:46:19', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
-('1552722696', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Note 3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1);
+('1552722696', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Note 3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 09:51:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1552727374', 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'NOTES ONE\n', '2019-03-16 11:09:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:09:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1552727385', 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'nOTES 2', '2019-03-16 11:09:45', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:09:45', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
+('1552728998', '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Test', '2019-03-16 11:36:38', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:36:38', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
+('1552729762', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smitjh notes one', '2019-03-16 11:49:22', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:49:22', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1552756861', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'I will see him next week', '2019-03-16 19:21:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:21:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
+('1553173705', '3d84c984-3513-11e9-845b-80fa5b45280e', 'rest needed', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -205,6 +211,7 @@ INSERT INTO `notes` (`NoteId`, `PatientId`, `Notes`, `CreateDate`, `CreateUserId
 
 CREATE TABLE `patient` (
   `PatientId` varchar(225) NOT NULL,
+  `Title` varchar(10) NOT NULL,
   `FirstName` varchar(225) NOT NULL,
   `Surname` varchar(225) NOT NULL,
   `IdNumber` varchar(15) NOT NULL,
@@ -227,13 +234,13 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `City`, `Province`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-('3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith', 'Sosibo', '92071445545454', '14/07/1992', 'male', 'smith122@gmail.com', '0821457845', '215 End St', 'Durban', '', '4002', '1', '2019-02-20 15:27:16', '1', '2019-02-20 15:27:16', 1),
-('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Johannesburg', '', '2100', '1', '2018-11-23 10:13:55', '1', '2018-11-23 10:20:07', 1),
-('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Green Stones', 'Johannesburg', '', '2100', '1', '2018-11-28 22:01:23', '1', '2018-11-28 22:01:23', 1),
-('a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry', 'Hlongwana', '92071445545454', '14/07/1992', 'male', 'henry@mail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 1),
-('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '45454545', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Johannesburg', '', '2194', '1', '2018-11-30 21:11:57', '1', '2018-11-30 21:35:51', 1),
-('cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Johannesburg', '', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
+INSERT INTO `patient` (`PatientId`, `Title`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `City`, `Province`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
+('3d84c984-3513-11e9-845b-80fa5b45280e', '', 'Smith', 'Sosibo', '92071445545454', '14/07/1992', 'male', 'smith122@gmail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 1),
+('849a510c-4bf3-11e9-95e2-80fa5b45280e', 'Mrs', 'Smith', 'Sosibo', '53454', '2019-03-20', 'Female', '1553184480@doc-io.net', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 1),
+('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Johannesburg', '', '2100', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:13:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:20:07', 1),
+('a6db1355-3abe-11e9-8de3-80fa5b45280e', '', 'Haenry', 'Hlongwana', '92071445545454', '14/07/1992', 'male', 'henry@mail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 1),
+('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '', 'Nduduzo', 'Magwaza', '45454545', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Johannesburg', 'Gauteng', '2194', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:11:57', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:35:51', 1),
+('cf9b3649-314d-44d5-abe5-3c5cc7363af6', '', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Johannesburg', '', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
 
 -- --------------------------------------------------------
 
@@ -272,6 +279,7 @@ INSERT INTO `prescription` (`prescriptionId`, `patientId`, `symptoms`, `diagnosi
 ('1551844843', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'sisu', 'sisu', '2', '2', '2019-03-06 06:00:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 06:00:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('1551853034', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Test now', 'Test now', 'Test now', 'Test now', '2019-03-06 08:17:14', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 08:17:14', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('1551887101', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Hot body', 'Flue', '150k', '152', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('1552756972', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Hot body', 'Winter flue', '100', '55', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('210d4f40-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Flue', '100', '100', '2018-11-23 10:24:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2110a6e6-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Headaches', '50', '50', '2018-11-23 12:19:13', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2110a7eb-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
@@ -311,6 +319,9 @@ INSERT INTO `prescription_medication_drug` (`prescriptionMedicationId`, `prescri
 ('118e878a-3f8b-11e9-91f0-80fa5b45280e', '0198131b7121706caede38a84bd6a088', '2d708510-34cd-45412-8a5d-f48e38e878a3', 'cc', '32', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:10:12', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('12ad76be-3f8e-11e9-91f0-80fa5b45280e', 'ee2749dfbe643778f37c00f940de8c25', '2d708510-34cd-45412-8a5d-f48e38e878a3', '1', '1', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:31:42', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('1bbb731a-3f90-11e9-91f0-80fa5b45280e', '1551822376', '2d708510-34cd-45412-8a5d-f48e38e878a3', '1', '1', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:46:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2ce45b28-4810-11e9-a088-80fa5b45280e', '1552756972', '2d708510-34cd-45412-8a5d-f48e38e878a3', '1', '1', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2ce4ab48-4810-11e9-a088-80fa5b45280e', '1552756972', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '2', '3', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('2ce4f6bd-4810-11e9-a088-80fa5b45280e', '1552756972', '1551853034', '1', '3', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('382bdd75-3f8c-11e9-91f0-80fa5b45280e', 'c45ac9e74263f3d91a5e8535c992a30e', '2d708510-34cd-45412-8a5d-f48e38e878a3', '3', '3', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:18:26', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('382c1e12-3f8c-11e9-91f0-80fa5b45280e', 'c45ac9e74263f3d91a5e8535c992a30e', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '2', '2', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:18:26', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('6bed10f4-3fc1-11e9-91f0-80fa5b45280e', '1551843552', '1551843552', '2', '1', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 05:39:12', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
@@ -444,16 +455,26 @@ INSERT INTO `que` (`QuiID`, `PatientId`, `PatientName`, `Status`, `Createdate`, 
 (73, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 2, '2019-03-13 19:27:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (74, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 2, '2019-03-13 19:27:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (75, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-13 19:27:29', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(76, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 1, '2019-03-13 19:27:30', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(77, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 1, '2019-03-13 19:27:30', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(78, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 1, '2019-03-13 19:27:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(79, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 1, '2019-03-13 19:27:32', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(80, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 1, '2019-03-13 19:27:32', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(81, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 1, '2019-03-13 19:27:33', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(82, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 1, '2019-03-13 19:27:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(83, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 1, '2019-03-13 19:27:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(84, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 1, '2019-03-13 19:27:35', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(85, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 1, '2019-03-13 19:27:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
+(76, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 2, '2019-03-13 19:27:30', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(77, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-13 19:27:30', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(78, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 2, '2019-03-13 19:27:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(79, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 2, '2019-03-13 19:27:32', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(80, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-13 19:27:32', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(81, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-13 19:27:33', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(82, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-13 19:27:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(83, '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane Zikhali', 2, '2019-03-13 19:27:34', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(84, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 2, '2019-03-13 19:27:35', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(85, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-13 19:27:36', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(86, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 2, '2019-03-16 11:11:42', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(87, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-16 12:15:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(88, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-16 12:15:39', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(89, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 2, '2019-03-16 19:24:40', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(90, 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Haenry Hlongwana', 2, '2019-03-16 19:24:46', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(91, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-16 19:24:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(92, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-18 23:05:54', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(93, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-18 23:06:04', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(94, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-21 15:11:40', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(95, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-21 15:11:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
 
 -- --------------------------------------------------------
 
@@ -585,7 +606,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `que`
 --
 ALTER TABLE `que`
-  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `statuses`

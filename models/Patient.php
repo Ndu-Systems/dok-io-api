@@ -23,7 +23,7 @@ class Patient
     {
 
         $query = "
-        select patient.PatientId,patient.DOB,patient.StatusId, patient.Province, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
+        select patient.PatientId,patient.Title, patient.DOB,patient.StatusId, patient.Province, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
         medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
         count(appointment.AppointmentId) as NumAppointments 
         from patient 
@@ -94,6 +94,7 @@ class Patient
     }
       //Add user 
     public function add(
+        $Title,
         $FirstName,
         $Surname,
         $IdNumber,
@@ -114,6 +115,7 @@ class Patient
         }
         $query = "INSERT INTO patient (
                                          PatientId
+                                        ,Title
                                         ,FirstName
                                         ,Surname
                                         ,IdNumber
@@ -128,11 +130,12 @@ class Patient
                                         ,CreateUserId
                                         ,ModifyUserId
                                         ,StatusId)
-                    VALUES (UUID(),?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
+                    VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
             if($stmt->execute(array(
+                $Title,
                 $FirstName,
                 $Surname,
                 $IdNumber,
@@ -158,6 +161,7 @@ class Patient
 
     //Add Update User 
     public function update(
+        $Title,
         $FirstName,
         $Surname,
         $IdNumber,
@@ -178,7 +182,8 @@ class Patient
             return "User with email address (" . $Email . ") DOES NOT EXITS";
         }
         $query = "UPDATE  patient  SET
-                                        FirstName = ?
+                                        Title = ?
+                                        ,FirstName = ?
                                         ,Surname = ?
                                         ,IdNumber = ?
                                         ,DOB = ?
@@ -199,6 +204,7 @@ class Patient
         try {
             $stmt = $this->conn->prepare($query);
             if($stmt->execute(array(
+                $Title,
                 $FirstName,
                 $Surname,
                 $IdNumber,

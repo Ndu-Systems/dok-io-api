@@ -4,6 +4,7 @@ include_once '../../models/Patient.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
+$Title  = $data->Title;
 $FirstName  = $data->FirstName;
 $Surname  = $data->Surname;
 $IdNumber  = $data->IdNumber;
@@ -31,6 +32,7 @@ $db = $database->connect();
 $user = new Patient($db);
 
 $result = $user->update(
+    $Title,
     $FirstName,
     $Surname,
     $IdNumber,
