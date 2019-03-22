@@ -93,9 +93,47 @@ class MedicalAid
                 $MemberShipNumber,
                 $PrimaryMember,
                 $PrimaryMemberId,
-                $CreateUserId,
                 $ModifyUserId,
                 $StatusId
+            ));
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
+
+    public function update(
+        $MedicalaidId,
+        $MedicalaidName,
+        $MedicalaidType,
+        $MemberShipNumber,
+        $PrimaryMember,
+        $PrimaryMemberId,
+        $ModifyUserId,
+        $StatusId
+    ) {
+    
+        $query = "UPDATE medicalaid SET 
+                                        MedicalaidName =?,
+                                        MedicalaidType =?,
+                                        MemberShipNumber =?,
+                                        PrimaryMember =?,
+                                        PrimaryMemberId =?,
+                                        ModifyUserId =?,
+                                        StatusId =?
+                                        where MedicalaidId=?
+                                     ";
+        try {
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute(array(
+                $MedicalaidName,
+                $MedicalaidType,
+                $MemberShipNumber,
+                $PrimaryMember,
+                $PrimaryMemberId,
+                $ModifyUserId,
+                $StatusId,
+                $MedicalaidId
+
             ));
         } catch (Exception $e) {
             return $e;
