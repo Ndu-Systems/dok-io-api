@@ -42,21 +42,34 @@ class MedicalAid
 
         return $stmt;
     }
-     //Get medicalaid by id
-     public function getByMemebershipNumber($MemberShipNumber)
-     {
- 
-         $query = "select * from medicalaid where MemberShipNumber = ?";
- 
-         //Prepare statement
-         $stmt = $this->conn->prepare($query);
- 
-         //Execute query
-         $stmt->execute(array($MemberShipNumber));
- 
-         return $stmt->rowCount();
+    //Get medicalaid by id
+    public function getByMemebershipNumber($MemberShipNumber)
+    {
 
-     }
+        $query = "select * from medicalaid where MemberShipNumber = ?";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute(array($MemberShipNumber));
+
+        return $stmt->rowCount();
+    }
+    //Get medicalaid by id
+    public function getByMedicalId($MedicalaidId)
+    {
+
+        $query = "select * from medicalaid where MedicalaidId = ?";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute(array($MedicalaidId));
+
+        return $stmt->rowCount();
+    }
     //Add medicalaid 
     public function add(
         $PatientId,
@@ -93,6 +106,7 @@ class MedicalAid
                 $MemberShipNumber,
                 $PrimaryMember,
                 $PrimaryMemberId,
+                $CreateUserId,
                 $ModifyUserId,
                 $StatusId
             ));
@@ -102,6 +116,7 @@ class MedicalAid
     }
 
     public function update(
+        $PatientId,
         $MedicalaidId,
         $MedicalaidName,
         $MedicalaidType,
@@ -111,7 +126,20 @@ class MedicalAid
         $ModifyUserId,
         $StatusId
     ) {
-    
+        if ($this->getByMedicalId($MedicalaidId) == 0) {
+            $this->add(   
+                $PatientId,
+                $MedicalaidName,
+                $MedicalaidType,
+                $MemberShipNumber,
+                $PrimaryMember,
+                $PrimaryMemberId,
+                $ModifyUserId,
+                $ModifyUserId,
+                $StatusId
+        );
+            return true;
+        }
         $query = "UPDATE medicalaid SET 
                                         MedicalaidName =?,
                                         MedicalaidType =?,

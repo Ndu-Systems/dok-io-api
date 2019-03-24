@@ -23,12 +23,13 @@ $db = $database->connect();
 $user = new Contactperson($db);
 
 $result = $user->getById($PatientId);
-
+$outputList = Array();
 if($result->rowCount()){
-    $user = $result->fetchAll(PDO::FETCH_ASSOC);
+    $outputList = $result->fetchAll(PDO::FETCH_ASSOC);
+
 }
 
-echo json_encode($user);
+echo json_encode($outputList);
 
 
 

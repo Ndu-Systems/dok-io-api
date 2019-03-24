@@ -10,6 +10,7 @@ $MemberShipNumber  = $data->MemberShipNumber;
 $PrimaryMember  = $data->PrimaryMember;
 $PrimaryMemberId  = $data->PrimaryMemberId;
 $ModifyUserId  = $data->ModifyUserId;
+$PatientId  = $data->PatientId;
 $StatusId = $data->StatusId;
 
 
@@ -26,6 +27,7 @@ $item = new MedicalAid($db);
 
 
 $result = $item->update(
+    $PatientId,
     $MedicalaidId,
     $MedicalaidName,
     $MedicalaidType,
