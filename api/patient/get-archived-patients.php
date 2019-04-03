@@ -10,7 +10,7 @@ $db = $database->connect();
 
 $patients = new Patient($db);
 
-$result = $patients->readarchived();
+$result = $patients->read(2);
 
 if($result->rowCount()){
     $patients = $result->fetchAll(PDO::FETCH_ASSOC);
