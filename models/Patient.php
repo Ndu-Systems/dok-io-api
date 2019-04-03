@@ -42,6 +42,30 @@ class Patient
         return $stmt;
 
     }
+    //Get a user
+    public function readarchived()
+    {
+
+        $query = "
+        select patient.PatientId,patient.Title, patient.DOB,patient.StatusId, patient.Province, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
+        medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
+        count(appointment.AppointmentId) as NumAppointments 
+        from patient 
+        left join  medicalaid on medicalaid.PatientId = patient.PatientId   
+        left join appointment on appointment.PatientId = patient.PatientId        
+        where patient.StatusId = ?		
+		GROUP by patient.PatientId
+        ";
+
+        //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Execute query
+        $stmt->execute(array(2));
+
+        return $stmt;
+
+    }
     //Get patient by id
     public function getById($PatientId)
     {
