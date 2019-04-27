@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 02:56 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Apr 27, 2019 at 05:01 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -583,7 +583,6 @@ INSERT INTO `statuses` (`StatusId`, `Description`, `CreateUserId`, `CreateDate`,
 
 CREATE TABLE `user` (
   `UserId` varchar(225) NOT NULL,
-  `Username` varchar(225) NOT NULL,
   `Email` varchar(225) NOT NULL,
   `Password` varchar(225) NOT NULL,
   `FirstName` varchar(225) NOT NULL,
@@ -604,8 +603,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `FirstName`, `Surname`, `Title`, `Gender`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
-('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', 'n/a', 'n/a', '', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
+INSERT INTO `user` (`UserId`, `Email`, `Password`, `FirstName`, `Surname`, `Title`, `Gender`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
+('0f567556-68fd-11e9-88fd-80fa5b45280e', 'WQS@EWD', '321', 'saS', 'S', 'Mrs', 'Male', '3213', '2132', 'SYS', '2019-04-27 16:59:30', 'SYS', '2019-04-27 16:59:30', NULL, 4),
+('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'pass', 'n/a', 'n/a', '', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
 
 -- --------------------------------------------------------
 
