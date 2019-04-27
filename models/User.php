@@ -1,7 +1,8 @@
 <?php
 
 
-class User{
+class User
+{
     //DB Stuff
     private $conn;
     private $table = 'user';
@@ -13,15 +14,15 @@ class User{
 
     //Constructor to DB
 
-     public function __construct($db)
+    public function __construct($db)
     {
-       $this->conn = $db;
+        $this->conn = $db;
     }
 
     //Get a user
-    public function read( $email, $password)
+    public function read($email, $password)
     {
-      
+
         $query = "SELECT 
         UserId, 
         Email ,
@@ -38,14 +39,61 @@ class User{
         $stmt = $this->conn->prepare($query);
 
         //Execute query
-        $stmt->execute(Array($email,$password));
+        $stmt->execute(array($email, $password));
 
         return $stmt;
-
     }
 
 
+    public function  signUp(
+        $Email, 
+        $Password, 
+        $FirstName, 
+        $Surname, 
+        $Title, 
+        $Gender, 
+        $PhoneNumber, 
+        $IdNumber, 
+        $CreateUserId, 
+        $ModifyUserId, 
+        $StatusId
+    ) {
+        $query = "INSERT INTO user (
+                                        UserId, 
+                                        Email, 
+                                        Password, 
+                                        FirstName, 
+                                        Surname, 
+                                        Title, 
+                                        Gender, 
+                                        PhoneNumber, 
+                                        IdNumber, 
+                                        CreateUserId, 
+                                        ModifyUserId, 
+                                        StatusId
+                                    )
+                    VALUES (uuid(),?, ?, ?, ?,?, ?, ?,?, ?, ?, ?)           
+                   ";
+        try {
+            $stmt = $this->conn->prepare($query);
+            if ($stmt->execute(array(
+                $Email, 
+                $Password, 
+                $FirstName, 
+                $Surname, 
+                $Title, 
+                $Gender, 
+                $PhoneNumber, 
+                $IdNumber, 
+                $CreateUserId, 
+                $ModifyUserId, 
+                $StatusId
+            ))) {
+                // return $this->conn->lastInsertId();
+                return true;
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
 }
-
-
-
