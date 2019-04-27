@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 05:15 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Apr 27, 2019 at 02:52 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,9 +77,11 @@ CREATE TABLE `contactperson` (
 INSERT INTO `contactperson` (`ContactPersonId`, `PatientId`, `Name`, `Relationship`, `CellNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
 ('514b51ae-3a58-11e9-8de3-80fa5b45280e', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Bongani Mthembu', 'Father', '08253536168', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:20', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:20', 1),
 ('67d7b033-3a58-11e9-8de3-80fa5b45280e', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Bongani Mthembu', 'Father', '08253536168', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:58', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 08:24:58', 1),
+('8f6be7d9-4c02-11e9-b0af-f48e38e878a3', '4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Charles Motaung', 'Friend', '08346528123', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:55:49', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:55:49', 1),
 ('b5588cd0-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'dsad', 'dsad', '212213213', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:56:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:56:01', 1),
 ('db12cd9d-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'daSD', 'DASD', 'DSADSA', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:04', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:04', 1),
-('f1e8a356-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'nDUMI', 'DSADD', 'DSADSA', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 1);
+('f1e8a356-3ac9-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', 'nDUMI', 'DSADD', 'DSADSA', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:57:42', 1),
+('f847eb46-4c07-11e9-b0af-f48e38e878a3', 'ebf7b73c-4c07-11e9-b0af-f48e38e878a3', 'Sabelo ', 'Mkize', '0746856723', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 20:34:32', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 20:34:32', 1);
 
 -- --------------------------------------------------------
 
@@ -108,6 +110,7 @@ CREATE TABLE `medicalaid` (
 
 INSERT INTO `medicalaid` (`MedicalaidId`, `PatientId`, `MedicalaidName`, `MedicalaidType`, `MemberShipNumber`, `PrimaryMember`, `PrimaryMemberId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
 ('482cb7da-34cd-11e9-8a5d-f48e38e878a3', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Discovery', 'Delta server', '4545788778', 'Freedom Khanyile', '9306125458195', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 07:13:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('6c5e001a-4c02-11e9-b0af-f48e38e878a3', '4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Discovery ', 'Key Care Plus', '2540585642423', 'Themba Mokoena', '92041925056433547', '2019-03-21 19:54:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:54:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('9c869524-359d-11e9-a52e-80fa5b45280e', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Momentum', 'VIP Pack', 'M45784545424', 'Smith Sosibo', '92071445545454', '2019-02-21 07:57:46', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-21 07:57:46', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('ba395cea-3ac7-11e9-ab03-80fa5b45280e', '84289ca6-3ac7-11e9-ab03-80fa5b45280e', '32312', '434324', '3123@sadsa', '3123@sadsa', '3123@sadsa', '2019-02-27 21:41:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 21:41:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1);
 
@@ -201,7 +204,11 @@ INSERT INTO `notes` (`NoteId`, `PatientId`, `Notes`, `CreateDate`, `CreateUserId
 ('1552728998', '8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Test', '2019-03-16 11:36:38', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:36:38', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
 ('1552729762', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smitjh notes one', '2019-03-16 11:49:22', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 11:49:22', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
 ('1552756861', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'I will see him next week', '2019-03-16 19:21:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:21:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
-('1553173705', '3d84c984-3513-11e9-845b-80fa5b45280e', 'rest needed', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1);
+('1553173705', '3d84c984-3513-11e9-845b-80fa5b45280e', 'rest needed', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 15:08:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1553191135', '849a510c-4bf3-11e9-95e2-80fa5b45280e', 'He was better today walking right', '2019-03-21 19:58:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:58:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1553191307', '4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Coole nots', '2019-03-21 20:01:47', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 20:01:47', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 1),
+('1554318781', 'a6db1355-3abe-11e9-8de3-80fa5b45280e', 'Just testing nothing much', '2019-04-03 21:13:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-04-03 21:13:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0),
+('1555149815', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'New enquiry', '2019-04-13 12:03:35', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-04-13 12:03:35', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -235,12 +242,49 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`PatientId`, `Title`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `City`, `Province`, `PostCode`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-('3d84c984-3513-11e9-845b-80fa5b45280e', '', 'Smith', 'Sosibo', '92071445545454', '14/07/1992', 'male', 'smith122@gmail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 1),
-('849a510c-4bf3-11e9-95e2-80fa5b45280e', 'Mrs', 'Smith', 'Sosibo', '53454', '2019-03-20', 'Female', '1553184480@doc-io.net', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 1),
+('3d84c984-3513-11e9-845b-80fa5b45280e', '', 'Smith', 'Sosibo', '92071445545454', '14/07/1992', 'male', 'smith122@gmail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-20 15:27:16', 2),
+('4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Mr', 'Themba', 'Mokoena', '9204195800052', '1992-04-19', 'Male', 'themba.mokoena@gmail.com', '0746645665', 'Freedom street', 'Johannesburg', 'Gauteng', '2194', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:53:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 19:53:59', 2),
+('849a510c-4bf3-11e9-95e2-80fa5b45280e', 'Mrs', 'Smith', 'Sosibo', '53454', '2019-03-20', 'Female', '1553184480@doc-io.net', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 18:08:00', 2),
 ('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Johannesburg', '', '2100', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:13:55', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-23 10:20:07', 1),
-('a6db1355-3abe-11e9-8de3-80fa5b45280e', '', 'Haenry', 'Hlongwana', '92071445545454', '14/07/1992', 'male', 'henry@mail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 1),
+('a6db1355-3abe-11e9-8de3-80fa5b45280e', '', 'Haenry', 'Hlongwana', '92071445545454', '14/07/1992', 'male', 'henry@mail.com', '0821457845', '215 End St', 'Durban', 'KZN', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-27 20:36:48', 2),
 ('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '', 'Nduduzo', 'Magwaza', '45454545', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Johannesburg', 'Gauteng', '2194', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:11:57', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2018-11-30 21:35:51', 1),
-('cf9b3649-314d-44d5-abe5-3c5cc7363af6', '', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Johannesburg', '', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1);
+('cf9b3649-314d-44d5-abe5-3c5cc7363af6', '', 'Simiso', 'Shange', '830610050208', '1983-06-10', 'Male', 'Simiso.Shange@gmail.com', '0748258225', 'Braamfontein Gate', 'Johannesburg', '', '2100', '1', '2018-12-04 08:38:25', '1', '2018-12-04 08:38:26', 1),
+('ebf7b73c-4c07-11e9-b0af-f48e38e878a3', 'Mr', 'Nkululeko', 'Magwaza', '9217051247558', '1992-07-25', 'Male', 'smith1222@gmail.com', '0821457845', '215 End St', 'Durban', 'KwaZulu-Natal', '4002', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 20:34:11', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-21 20:34:11', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient-doctor-practice`
+--
+
+CREATE TABLE `patient-doctor-practice` (
+  `Id` varchar(225) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
+  `DoctorId` varchar(225) NOT NULL,
+  `PracticeId` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `practice`
+--
+
+CREATE TABLE `practice` (
+  `PracticeId` varchar(225) NOT NULL,
+  `Name` varchar(225) DEFAULT NULL,
+  `Address` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -280,6 +324,7 @@ INSERT INTO `prescription` (`prescriptionId`, `patientId`, `symptoms`, `diagnosi
 ('1551853034', '3d84c984-3513-11e9-845b-80fa5b45280e', 'Test now', 'Test now', 'Test now', 'Test now', '2019-03-06 08:17:14', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 08:17:14', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('1551887101', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Hot body', 'Flue', '150k', '152', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('1552756972', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Hot body', 'Winter flue', '100', '55', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-16 19:22:52', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('1555149962', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Nose blocked', 'Flue', '85', '25', '2019-04-13 12:06:02', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-04-13 12:06:02', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('210d4f40-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Flue', '100', '100', '2018-11-23 10:24:31', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2110a6e6-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Headaches', '50', '50', '2018-11-23 12:19:13', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('2110a7eb-34cd-11e9-8a5d-f48e38e878a3', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'default value', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-02-01 21:51:07', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
@@ -354,6 +399,7 @@ INSERT INTO `prescription_medication_drug` (`prescriptionMedicationId`, `prescri
 ('a5c153aa-3f90-11e9-91f0-80fa5b45280e', '1551822608', '2d708510-34cd-45412-8a5d-f48e38e878a3', '1', '1', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-05 23:50:08', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('ad85a457-3ebd-11e9-a159-80fa5b45280e', 'aed6f39c80310dc69e262612436ff7d4', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '200ml', '3 tbl spoons a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:39:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('ad85d922-3ebd-11e9-a159-80fa5b45280e', 'aed6f39c80310dc69e262612436ff7d4', '2d708510-34cd-45412-8a5d-f48e38e878a3', '10 tablets', '1 tablet 3 times a day after meals', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-04 22:39:59', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
+('be66278d-5dd3-11e9-9acf-f48e38e878a3', '1555149962', '2d6a6af7-34cd-11e9-8a5d-f48e38e878a3', '1', '3 times a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-04-13 12:06:02', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('d26ace12-4026-11e9-91f0-80fa5b45280e', '1551887101', '1551887101', '2', '2', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('d26b4081-4026-11e9-91f0-80fa5b45280e', '1551887101', '2d708510-34cd-45412-8a5d-f48e38e878a3', '1', '1tbs 3 times a day', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 17:45:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
 ('dabbd5c4-3fbd-11e9-91f0-80fa5b45280e', '1551842020', '1551842020', '3', '3', '0000-00-00 00:00:00', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', '2019-03-06 05:13:40', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3', 1),
@@ -474,7 +520,34 @@ INSERT INTO `que` (`QuiID`, `PatientId`, `PatientName`, `Status`, `Createdate`, 
 (92, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-18 23:05:54', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (93, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-18 23:06:04', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (94, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-21 15:11:40', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(95, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-21 15:11:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
+(95, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-03-21 15:11:43', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(96, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-21 19:57:48', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(97, '849a510c-4bf3-11e9-95e2-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-21 19:58:08', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(98, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-03-21 19:58:12', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(99, '4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Themba Mokoena', 2, '2019-03-21 19:58:18', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(100, '3d84c984-3513-11e9-845b-80fa5b45280e', 'Smith Sosibo', 2, '2019-03-21 20:26:03', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(101, '4e08589d-4c02-11e9-b0af-f48e38e878a3', 'Themba Mokoena', 2, '2019-03-21 22:08:50', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(102, '849a510c-4bf3-11e9-95e2-80fa5b45280e', 'Smith Sosibo', 2, '2019-04-03 21:15:25', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(103, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-03 22:21:23', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(104, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-03 22:21:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(105, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-04-13 12:06:56', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(106, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 1, '2019-04-13 12:07:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `RoleId` varchar(225) NOT NULL,
+  `Description` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` varchar(225) NOT NULL,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -513,11 +586,15 @@ CREATE TABLE `user` (
   `Username` varchar(225) NOT NULL,
   `Email` varchar(225) NOT NULL,
   `Password` varchar(225) NOT NULL,
+  `FirstName` varchar(225) NOT NULL,
+  `Surname` varchar(225) NOT NULL,
+  `PhoneNumber` varchar(20) NOT NULL,
+  `IdNumber` varchar(20) NOT NULL,
   `CreateUserId` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` varchar(225) NOT NULL,
   `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `UserFlags` int(11) NOT NULL,
+  `ParentId` varchar(225) DEFAULT NULL,
   `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -525,8 +602,42 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `UserFlags`, `StatusId`) VALUES
-('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', 2, 1);
+INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `FirstName`, `Surname`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
+('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', 'n/a', 'n/a', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user-practice`
+--
+
+CREATE TABLE `user-practice` (
+  `Id` varchar(225) NOT NULL,
+  `UserId` varchar(225) NOT NULL,
+  `PracticeId` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user-roles`
+--
+
+CREATE TABLE `user-roles` (
+  `Id` int(11) NOT NULL,
+  `UserId` varchar(225) NOT NULL,
+  `RoleId` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -569,6 +680,12 @@ ALTER TABLE `patient`
   ADD PRIMARY KEY (`PatientId`);
 
 --
+-- Indexes for table `practice`
+--
+ALTER TABLE `practice`
+  ADD PRIMARY KEY (`PracticeId`);
+
+--
 -- Indexes for table `prescription`
 --
 ALTER TABLE `prescription`
@@ -587,6 +704,12 @@ ALTER TABLE `que`
   ADD PRIMARY KEY (`QuiID`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`RoleId`);
+
+--
 -- Indexes for table `statuses`
 --
 ALTER TABLE `statuses`
@@ -599,6 +722,18 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`UserId`);
 
 --
+-- Indexes for table `user-practice`
+--
+ALTER TABLE `user-practice`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `user-roles`
+--
+ALTER TABLE `user-roles`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -606,13 +741,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `que`
 --
 ALTER TABLE `que`
-  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `statuses`
 --
 ALTER TABLE `statuses`
   MODIFY `StatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `user-roles`
+--
+ALTER TABLE `user-roles`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
