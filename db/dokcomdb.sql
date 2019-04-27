@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 02:52 PM
+-- Generation Time: Apr 27, 2019 at 02:56 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -588,6 +588,8 @@ CREATE TABLE `user` (
   `Password` varchar(225) NOT NULL,
   `FirstName` varchar(225) NOT NULL,
   `Surname` varchar(225) NOT NULL,
+  `Title` varchar(10) NOT NULL,
+  `Gender` varchar(10) NOT NULL,
   `PhoneNumber` varchar(20) NOT NULL,
   `IdNumber` varchar(20) NOT NULL,
   `CreateUserId` varchar(225) NOT NULL,
@@ -602,8 +604,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `FirstName`, `Surname`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
-('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', 'n/a', 'n/a', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
+INSERT INTO `user` (`UserId`, `Username`, `Email`, `Password`, `FirstName`, `Surname`, `Title`, `Gender`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
+('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'doc@mail.com', 'pass', 'n/a', 'n/a', '', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
 
 -- --------------------------------------------------------
 
