@@ -23,12 +23,41 @@ class Patient
     {
 
         $query = "
-        select patient.PatientId,patient.Title, patient.DOB,patient.StatusId, patient.Province, patient.FirstName, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
-        medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
+        select 
+        patient.PatientId,
+        patient.Title, 
+        patient.DOB,
+        patient.StatusId, 
+        patient.Province, 
+        patient.FirstName, 
+        patient.Surname,
+        patient.IdNumber,
+        patient.Email,
+        patient.Cellphone,
+        patient.Gender,
+        patient.CreateDate,
+        patient.AddressLine1,
+        patient.City ,
+        patient.PostCode ,
+
+        medicalaid.MedicalaidId, 
+        medicalaid.MedicalaidName, 
+        medicalaid.MedicalaidType, 
+        medicalaid.MemberShipNumber, 
+        medicalaid.PrimaryMember, 
+        medicalaid.PrimaryMemberId,
+
+        contactperson.ContactPersonId,
+        contactperson.Name as ContactName,
+        contactperson.CellNumber  as ContactCell,
+        contactperson.Relationship  as ContactRelationship,
+
         count(appointment.AppointmentId) as NumAppointments 
+
         from patient 
         left join  medicalaid on medicalaid.PatientId = patient.PatientId   
         left join appointment on appointment.PatientId = patient.PatientId        
+        left join contactperson on contactperson.PatientId = patient.PatientId        
         where patient.StatusId = ?		
 		GROUP by patient.PatientId
         ";
@@ -49,10 +78,18 @@ class Patient
         $query = "
         select patient.PatientId, patient.FirstName, patient.DOB, patient.Surname,patient.IdNumber,patient.Email,patient.Cellphone,patient.Gender,patient.CreateDate,patient.AddressLine1,patient.City ,patient.PostCode ,
         medicalaid.MedicalaidId, medicalaid.MedicalaidName, medicalaid.MedicalaidType, medicalaid.MemberShipNumber, medicalaid.PrimaryMember, medicalaid.PrimaryMemberId,
-        count(appointment.AppointmentId) as NumAppointments 
+        count(appointment.AppointmentId) as NumAppointments ,
+
+
+        contactperson.ContactPersonId,
+        contactperson.Name as ContactName,
+        contactperson.CellNumber  as ContactCell,
+        contactperson.Relationship  as ContactRelationship
+        
         from patient 
         left join  medicalaid on medicalaid.PatientId = patient.PatientId   
-        left join appointment on appointment.PatientId = patient.PatientId        
+        left join appointment on appointment.PatientId = patient.PatientId 
+        left join contactperson on contactperson.PatientId = patient.PatientId               
         where patient.PatientId = ?		
 		GROUP by patient.PatientId
         ";
