@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/MedicalAid.php';
+include_once '../../models/Transactionhistory.php';
 
 $data = json_decode(file_get_contents("php://input"));
 $PatientId  = $data->PatientId;
@@ -39,6 +40,13 @@ $result = $item->add(
 );
 
 echo json_encode($result);
+
+
+// log data
+$userId = json_encode($result);
+$log = new Transactionhistory($db);
+$log_result  = $log->add('ADD_MEDAID_FOR_PATIENT',  json_encode($data),'',$PatientId, $CreateUserId, $CreateUserId, 1);
+
 
 
 

@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/Patient.php';
+include_once '../../models/Transactionhistory.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -54,6 +55,11 @@ $result = $user->add(
 );
 
 echo json_encode($result);
+
+// log data
+$userId = json_encode($result);
+$log = new Transactionhistory($db);
+$log_result  = $log->add('ADD_PATIENT',  json_encode($data),'', $result['PatientId'], $CreateUserId, $CreateUserId, 1);
 
 
 
