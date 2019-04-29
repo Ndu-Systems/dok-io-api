@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2019 at 03:34 PM
+-- Generation Time: Apr 29, 2019 at 03:55 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -585,6 +585,7 @@ CREATE TABLE `transactionhistory` (
   `TransactionHistoryId` varchar(225) NOT NULL,
   `Action` varchar(225) NOT NULL,
   `PayLoad` text NOT NULL,
+  `Outcome` text NOT NULL,
   `UserId` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `CreateUserId` varchar(225) NOT NULL,
@@ -597,8 +598,16 @@ CREATE TABLE `transactionhistory` (
 -- Dumping data for table `transactionhistory`
 --
 
-INSERT INTO `transactionhistory` (`TransactionHistoryId`, `Action`, `PayLoad`, `UserId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
-('4a97c0c8-6a83-11e9-8df0-80fa5b45280e', 'USER_REG_WEB', '{\"FirstName\":\"Test\",\"Surname\":\"Test\",\"Title\":\"Mrs\",\"Gender\":\"Female\",\"PhoneNumber\":\"5435435\",\"IdNumber\":4535435435,\"CreateUserId\":\"SYS\",\"ModifyUserId\":\"SYS\",\"Email\":\"test@mail2.com\",\"Password\":\"123\",\"PasswordConfirm\":\"123\",\"StatusId\":4}', '\"09a7b0fa-6a83-11e9-8df0-80fa5b45280e\"', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', 'SYS', 1);
+INSERT INTO `transactionhistory` (`TransactionHistoryId`, `Action`, `PayLoad`, `Outcome`, `UserId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('116712f1-6a85-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', '', 'doc@mail.com', '2019-04-29 15:45:36', 'SYS', '2019-04-29 15:45:36', 'SYS', 1),
+('1d06c5c4-6a85-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"ddy7878@fhdhgh\",\"password\":\"a\"}', '', 'ddy7878@fhdhgh', '2019-04-29 15:45:56', 'SYS', '2019-04-29 15:45:56', 'SYS', 1),
+('2baaa0b9-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"S\"}', 'doc@mail.com', 'LOGIN_FAILED', '2019-04-29 15:53:30', 'SYS', '2019-04-29 15:53:30', 'SYS', 1),
+('2d36fbaa-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASS\"}', 'doc@mail.com', 'LOGIN_SUCESS', '2019-04-29 15:53:32', 'SYS', '2019-04-29 15:53:32', 'SYS', 1),
+('44d62cb9-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"A\"}', 'LOGIN_FAILED', 'doc@mail.com', '2019-04-29 15:54:12', 'SYS', '2019-04-29 15:54:12', 'SYS', 1),
+('465c3ee6-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASSS\"}', 'LOGIN_FAILED', 'doc@mail.com', '2019-04-29 15:54:14', 'SYS', '2019-04-29 15:54:14', 'SYS', 1),
+('486cc5da-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASS\"}', 'LOGIN_SUCESS', 'doc@mail.com', '2019-04-29 15:54:18', 'SYS', '2019-04-29 15:54:18', 'SYS', 1),
+('4a97c0c8-6a83-11e9-8df0-80fa5b45280e', 'USER_REG_WEB', '{\"FirstName\":\"Test\",\"Surname\":\"Test\",\"Title\":\"Mrs\",\"Gender\":\"Female\",\"PhoneNumber\":\"5435435\",\"IdNumber\":4535435435,\"CreateUserId\":\"SYS\",\"ModifyUserId\":\"SYS\",\"Email\":\"test@mail2.com\",\"Password\":\"123\",\"PasswordConfirm\":\"123\",\"StatusId\":4}', '', '\"09a7b0fa-6a83-11e9-8df0-80fa5b45280e\"', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', 'SYS', 1),
+('ab973ad8-6a84-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', '', 'doc@mail.com', '2019-04-29 15:42:45', 'SYS', '2019-04-29 15:42:45', 'SYS', 1);
 
 -- --------------------------------------------------------
 

@@ -41,6 +41,7 @@ class Transactionhistory
     public function  add(
                     $Action, 
                     $PayLoad, 
+                    $Outcome, 
                     $UserId, 
                     $CreateUserId, 
                     $ModifyUserId, 
@@ -50,18 +51,20 @@ class Transactionhistory
                                 TransactionHistoryId, 
                                 Action, 
                                 PayLoad, 
+                                Outcome, 
                                 UserId, 
                                 CreateUserId, 
                                 ModifyUserId, 
                                 StatusId
                                     )
-                    VALUES (uuid(),?, ?, ?, ?,?, ?)           
+                    VALUES (uuid(),?, ?, ?, ?,?,?,?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
             if ($stmt->execute(array(
                 $Action, 
                 $PayLoad, 
+                $Outcome, 
                 $UserId, 
                 $CreateUserId, 
                 $ModifyUserId, 

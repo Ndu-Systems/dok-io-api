@@ -42,10 +42,8 @@ $result = $user->signUp(
 // log data
 $userId = json_encode($result);
 $log = new Transactionhistory($db);
-$log_result  =$log->add('USER_REG_WEB',  json_encode($data), $userId, $CreateUserId, $CreateUserId, 1);
+$log_result  = $log->add('USER_REG_WEB',  json_encode($data), $userId, $CreateUserId, $CreateUserId, 1);
 
-echo json_encode(json_encode($log_result));
-// echo json_encode(json_encode($data));
 
 
 
