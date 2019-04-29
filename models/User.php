@@ -63,6 +63,23 @@ class User
            return null;
    
        }
+          //get user by email
+          public function getByUserId($UserId)
+          {
+      
+              $query = "SELECT * FROM user WHERE UserId = ?";
+      
+              $stmt = $this->conn->prepare($query);
+              $stmt->execute(array($UserId));
+   
+           if ($stmt->rowCount()) {
+               $user = $stmt->fetch(PDO::FETCH_ASSOC);
+               return  $user;
+           }
+      
+              return null;
+      
+          }
 
 
     public function  signUp(
