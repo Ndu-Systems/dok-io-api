@@ -50,14 +50,14 @@ class User
        public function getByIdEmail($email)
        {
    
-           $query = "SELECT UserId FROM user WHERE Email = ?";
+           $query = "SELECT * FROM user WHERE Email = ?";
    
            $stmt = $this->conn->prepare($query);
            $stmt->execute(array($email));
 
         if ($stmt->rowCount()) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            return  $user['UserId'];
+            return  $user;
         }
    
            return null;

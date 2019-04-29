@@ -38,11 +38,10 @@ $result = $user->signUp(
     $ModifyUserId, 
     $StatusId
 );
-
+echo json_encode($result);
 // log data
-$userId = json_encode($result);
 $log = new Transactionhistory($db);
-$log_result  = $log->add('USER_REG_WEB',  json_encode($data),'', $userId, $CreateUserId, $CreateUserId, 1);
+$log_result  = $log->add('USER_REG_WEB',  json_encode($data),'', $result['UserId'], $CreateUserId, $CreateUserId, 1);
 
 
 
