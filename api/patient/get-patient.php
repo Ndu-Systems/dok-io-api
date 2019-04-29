@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/Patient.php';
+include_once '../../models/Transactionhistory.php';
 
  $PatientId = $_GET['PatientId'];
 //connect to db
@@ -18,6 +19,11 @@ if($result->rowCount()){
 }
 
 echo json_encode($patient);
+
+// log data
+$userId ='todo';
+$log = new Transactionhistory($db);
+$log_result  = $log->add('GET_PATIENT_INFO',  json_encode($patient),'',$PatientId, $userId, $userId, 1);
 
 
 
