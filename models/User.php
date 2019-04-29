@@ -46,6 +46,24 @@ class User
         return $stmt;
     }
 
+       //get user by email
+       public function getByIdEmail($email)
+       {
+   
+           $query = "SELECT UserId FROM user WHERE Email = ?";
+   
+           $stmt = $this->conn->prepare($query);
+           $stmt->execute(array($email));
+
+        if ($stmt->rowCount()) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return  $user['UserId'];
+        }
+   
+           return null;
+   
+       }
+
 
     public function  signUp(
         $Email, 
@@ -91,8 +109,7 @@ class User
                 $ModifyUserId, 
                 $StatusId
             ))) {
-                // return $this->conn->lastInsertId();
-                return true;
+                return $this->getByIdEmail($Email);
             }
         } catch (Exception $e) {
             return $e;

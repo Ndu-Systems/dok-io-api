@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 05:01 PM
+-- Generation Time: Apr 29, 2019 at 03:34 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -578,6 +578,31 @@ INSERT INTO `statuses` (`StatusId`, `Description`, `CreateUserId`, `CreateDate`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactionhistory`
+--
+
+CREATE TABLE `transactionhistory` (
+  `TransactionHistoryId` varchar(225) NOT NULL,
+  `Action` varchar(225) NOT NULL,
+  `PayLoad` text NOT NULL,
+  `UserId` varchar(225) NOT NULL,
+  `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreateUserId` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ModifyUserId` varchar(225) NOT NULL,
+  `StatusId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactionhistory`
+--
+
+INSERT INTO `transactionhistory` (`TransactionHistoryId`, `Action`, `PayLoad`, `UserId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('4a97c0c8-6a83-11e9-8df0-80fa5b45280e', 'USER_REG_WEB', '{\"FirstName\":\"Test\",\"Surname\":\"Test\",\"Title\":\"Mrs\",\"Gender\":\"Female\",\"PhoneNumber\":\"5435435\",\"IdNumber\":4535435435,\"CreateUserId\":\"SYS\",\"ModifyUserId\":\"SYS\",\"Email\":\"test@mail2.com\",\"Password\":\"123\",\"PasswordConfirm\":\"123\",\"StatusId\":4}', '\"09a7b0fa-6a83-11e9-8df0-80fa5b45280e\"', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', 'SYS', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -604,7 +629,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserId`, `Email`, `Password`, `FirstName`, `Surname`, `Title`, `Gender`, `PhoneNumber`, `IdNumber`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `ParentId`, `StatusId`) VALUES
+('09a7b0fa-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:04', 'SYS', '2019-04-29 15:31:04', NULL, 4),
 ('0f567556-68fd-11e9-88fd-80fa5b45280e', 'WQS@EWD', '321', 'saS', 'S', 'Mrs', 'Male', '3213', '2132', 'SYS', '2019-04-27 16:59:30', 'SYS', '2019-04-27 16:59:30', NULL, 4),
+('18adae43-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:29', 'SYS', '2019-04-29 15:31:29', NULL, 4),
+('1965ab78-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:31', 'SYS', '2019-04-29 15:31:31', NULL, 4),
+('1a4159dc-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:32', 'SYS', '2019-04-29 15:31:32', NULL, 4),
+('1e35cabe-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:39', 'SYS', '2019-04-29 15:31:39', NULL, 4),
+('4a96f9af-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', NULL, 4),
+('bc749c0b-6a7f-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:07:26', 'SYS', '2019-04-29 15:07:26', NULL, 4),
+('dd4b46fa-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:29:50', 'SYS', '2019-04-29 15:29:50', NULL, 4),
+('e982e5ab-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:30:10', 'SYS', '2019-04-29 15:30:10', NULL, 4),
+('ef451d68-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:30:20', 'SYS', '2019-04-29 15:30:20', NULL, 4),
 ('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'pass', 'n/a', 'n/a', '', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
 
 -- --------------------------------------------------------
@@ -716,6 +751,12 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `statuses`
   ADD PRIMARY KEY (`StatusId`);
+
+--
+-- Indexes for table `transactionhistory`
+--
+ALTER TABLE `transactionhistory`
+  ADD PRIMARY KEY (`TransactionHistoryId`);
 
 --
 -- Indexes for table `user`

@@ -1,6 +1,7 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/User.php';
+include_once '../../models/Transactionhistory.php';
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -38,7 +39,13 @@ $result = $user->signUp(
     $StatusId
 );
 
-echo json_encode($result);
+// log data
+$userId = json_encode($result);
+$log = new Transactionhistory($db);
+$log_result  =$log->add('USER_REG_WEB',  json_encode($data), $userId, $CreateUserId, $CreateUserId, 1);
+
+echo json_encode(json_encode($log_result));
+// echo json_encode(json_encode($data));
 
 
 
