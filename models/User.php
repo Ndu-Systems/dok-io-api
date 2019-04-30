@@ -23,16 +23,15 @@ class User
     public function read($email, $password)
     {
 
-        $query = "SELECT 
-        FirstName,
-        Surname,
-        PhoneNumber,
-        UserId, 
-        Email 
+        $query = "SELECT         
+        u.UserId,       
+        r.Description as Role
         FROM 
-        user 
+        user u JOIN 
+        userroles ur on u.UserId = ur.UserId 
+        LEFT JOIN roles r on ur.RoleId = r.RoleId
         WHERE 
-        Email =   ?
+        Email =  ?
         AND 
         Password = ?
         ";
