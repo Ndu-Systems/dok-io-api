@@ -30,7 +30,7 @@ class User
         UserId, 
         Email 
         FROM 
-        user 
+        user u JOIN user-roles
         WHERE 
         Email =   ?
         AND 

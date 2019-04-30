@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2019 at 03:55 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Apr 30, 2019 at 10:55 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -531,7 +531,12 @@ INSERT INTO `que` (`QuiID`, `PatientId`, `PatientName`, `Status`, `Createdate`, 
 (103, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-03 22:21:23', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (104, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-03 22:21:28', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
 (105, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-04-13 12:06:56', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
-(106, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 1, '2019-04-13 12:07:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
+(106, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 2, '2019-04-13 12:07:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(107, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-30 19:09:27', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(108, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-04-30 19:09:29', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(109, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo Magwaza', 2, '2019-04-30 19:10:01', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(110, 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', 'Simiso Shange', 2, '2019-04-30 19:10:05', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3'),
+(111, '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom Khanyile', 2, '2019-04-30 19:10:39', 'fe47252d-34cc-11e9-8a5d-f48e38e878a3');
 
 -- --------------------------------------------------------
 
@@ -540,14 +545,23 @@ INSERT INTO `que` (`QuiID`, `PatientId`, `PatientName`, `Status`, `Createdate`, 
 --
 
 CREATE TABLE `roles` (
-  `RoleId` varchar(225) NOT NULL,
+  `RoleId` int(11) NOT NULL,
   `Description` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `CreateUserId` varchar(225) NOT NULL,
-  `ModifyDate` varchar(225) NOT NULL,
+  `ModifyDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ModifyUserId` varchar(225) NOT NULL,
   `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`RoleId`, `Description`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+(1, 'Administrator', '2019-04-30 22:25:34', '1', '0000-00-00 00:00:00', '1', 1),
+(2, 'Doctor', '2019-04-30 22:27:20', '1', '2019-04-30 22:27:20', '1', 1),
+(3, 'Assistant', '2019-04-30 22:27:57', '1', '2019-04-30 22:27:57', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -599,15 +613,46 @@ CREATE TABLE `transactionhistory` (
 --
 
 INSERT INTO `transactionhistory` (`TransactionHistoryId`, `Action`, `PayLoad`, `Outcome`, `UserId`, `CreateDate`, `CreateUserId`, `ModifyDate`, `ModifyUserId`, `StatusId`) VALUES
+('016405c1-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:24', 'todo', '2019-04-30 19:04:24', 'todo', 1),
+('035a2ee2-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:27', 'todo', '2019-04-30 19:04:27', 'todo', 1),
+('0647ff13-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:32', 'todo', '2019-04-30 19:04:32', 'todo', 1),
+('08e4cc63-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:37', 'todo', '2019-04-30 19:04:37', 'todo', 1),
 ('116712f1-6a85-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', '', 'doc@mail.com', '2019-04-29 15:45:36', 'SYS', '2019-04-29 15:45:36', 'SYS', 1),
 ('1d06c5c4-6a85-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"ddy7878@fhdhgh\",\"password\":\"a\"}', '', 'ddy7878@fhdhgh', '2019-04-29 15:45:56', 'SYS', '2019-04-29 15:45:56', 'SYS', 1),
+('2118413f-6b6d-11e9-80de-f48e38e878a3', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', 'LOGIN_SUCESS', 'doc@mail.com', '2019-04-30 19:26:46', 'SYS', '2019-04-30 19:26:46', 'SYS', 1),
+('276d08cf-6b69-11e9-80de-f48e38e878a3', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', 'LOGIN_SUCESS', 'doc@mail.com', '2019-04-30 18:58:18', 'SYS', '2019-04-30 18:58:18', 'SYS', 1),
 ('2baaa0b9-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"S\"}', 'doc@mail.com', 'LOGIN_FAILED', '2019-04-29 15:53:30', 'SYS', '2019-04-29 15:53:30', 'SYS', 1),
+('2ce51af0-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"ceb9d536-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Nduduzo\",\"DOB\":\"1998-08-24\",\"Surname\":\"Magwaza\",\"IdNumber\":\"45454545\",\"Email\":\"magwaza@mail.com\",\"Cellphone\":\"0748508258\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-30 21:11:57\",\"AddressLine1\":\"Angular\",\"City\":\"Johannesburg\",\"PostCode\":\"2194\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"4\",\"ContactPersonId\":\"514b51ae-3a58-11e9-8de3-80fa5b45280e\",\"ContactName\":\"Bongani Mthembu\",\"ContactCell\":\"08253536168\",\"ContactRelationship\":\"Father\"}', '', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 18:58:28', 'todo', '2019-04-30 18:58:28', 'todo', 1),
 ('2d36fbaa-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASS\"}', 'doc@mail.com', 'LOGIN_SUCESS', '2019-04-29 15:53:32', 'SYS', '2019-04-29 15:53:32', 'SYS', 1),
+('35afdd85-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:05:52', 'todo', '2019-04-30 19:05:52', 'todo', 1),
+('3d25191f-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:06:04', 'todo', '2019-04-30 19:06:04', 'todo', 1),
+('3fc15ad3-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"cf9b3649-314d-44d5-abe5-3c5cc7363af6\",\"FirstName\":\"Simiso\",\"DOB\":\"1983-06-10\",\"Surname\":\"Shange\",\"IdNumber\":\"830610050208\",\"Email\":\"Simiso.Shange@gmail.com\",\"Cellphone\":\"0748258225\",\"Gender\":\"Male\",\"CreateDate\":\"2018-12-04 08:38:25\",\"AddressLine1\":\"Braamfontein Gate\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', '2019-04-30 18:58:59', 'todo', '2019-04-30 18:58:59', 'todo', 1),
+('4243742a-6b6d-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"ceb9d536-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Nduduzo\",\"DOB\":\"1998-08-24\",\"Surname\":\"Magwaza\",\"IdNumber\":\"45454545\",\"Email\":\"magwaza@mail.com\",\"Cellphone\":\"0748508258\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-30 21:11:57\",\"AddressLine1\":\"Angular\",\"City\":\"Johannesburg\",\"PostCode\":\"2194\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"4\",\"ContactPersonId\":\"514b51ae-3a58-11e9-8de3-80fa5b45280e\",\"ContactName\":\"Bongani Mthembu\",\"ContactCell\":\"08253536168\",\"ContactRelationship\":\"Father\"}', '', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:27:41', 'todo', '2019-04-30 19:27:41', 'todo', 1),
 ('44d62cb9-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"A\"}', 'LOGIN_FAILED', 'doc@mail.com', '2019-04-29 15:54:12', 'SYS', '2019-04-29 15:54:12', 'SYS', 1),
 ('465c3ee6-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASSS\"}', 'LOGIN_FAILED', 'doc@mail.com', '2019-04-29 15:54:14', 'SYS', '2019-04-29 15:54:14', 'SYS', 1),
+('479b6bf4-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 18:59:12', 'todo', '2019-04-30 18:59:12', 'todo', 1),
 ('486cc5da-6a86-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"PASS\"}', 'LOGIN_SUCESS', 'doc@mail.com', '2019-04-29 15:54:18', 'SYS', '2019-04-29 15:54:18', 'SYS', 1),
 ('4a97c0c8-6a83-11e9-8df0-80fa5b45280e', 'USER_REG_WEB', '{\"FirstName\":\"Test\",\"Surname\":\"Test\",\"Title\":\"Mrs\",\"Gender\":\"Female\",\"PhoneNumber\":\"5435435\",\"IdNumber\":4535435435,\"CreateUserId\":\"SYS\",\"ModifyUserId\":\"SYS\",\"Email\":\"test@mail2.com\",\"Password\":\"123\",\"PasswordConfirm\":\"123\",\"StatusId\":4}', '', '\"09a7b0fa-6a83-11e9-8df0-80fa5b45280e\"', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', 'SYS', 1),
-('ab973ad8-6a84-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', '', 'doc@mail.com', '2019-04-29 15:42:45', 'SYS', '2019-04-29 15:42:45', 'SYS', 1);
+('4bfd0cfc-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 18:59:20', 'todo', '2019-04-30 18:59:20', 'todo', 1),
+('8b4eddca-6b6c-11e9-80de-f48e38e878a3', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', 'LOGIN_SUCESS', 'doc@mail.com', '2019-04-30 19:22:34', 'SYS', '2019-04-30 19:22:34', 'SYS', 1),
+('8e6c1921-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:22:40', 'todo', '2019-04-30 19:22:40', 'todo', 1),
+('93a932bd-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:22:48', 'todo', '2019-04-30 19:22:48', 'todo', 1),
+('9a687db9-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:23:00', 'todo', '2019-04-30 19:23:00', 'todo', 1),
+('ab973ad8-6a84-11e9-8df0-80fa5b45280e', 'USER_LOGIN', '{\"email\":\"doc@mail.com\",\"password\":\"pass\"}', '', 'doc@mail.com', '2019-04-29 15:42:45', 'SYS', '2019-04-29 15:42:45', 'SYS', 1),
+('b64c88ab-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:02:18', 'todo', '2019-04-30 19:02:18', 'todo', 1),
+('bae64d7e-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:09:35', 'todo', '2019-04-30 19:09:35', 'todo', 1),
+('c2ce4903-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"ceb9d536-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Nduduzo\",\"DOB\":\"1998-08-24\",\"Surname\":\"Magwaza\",\"IdNumber\":\"45454545\",\"Email\":\"magwaza@mail.com\",\"Cellphone\":\"0748508258\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-30 21:11:57\",\"AddressLine1\":\"Angular\",\"City\":\"Johannesburg\",\"PostCode\":\"2194\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"4\",\"ContactPersonId\":\"514b51ae-3a58-11e9-8de3-80fa5b45280e\",\"ContactName\":\"Bongani Mthembu\",\"ContactCell\":\"08253536168\",\"ContactRelationship\":\"Father\"}', '', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:09:49', 'todo', '2019-04-30 19:09:49', 'todo', 1),
+('d27ff2d4-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"ceb9d536-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Nduduzo\",\"DOB\":\"1998-08-24\",\"Surname\":\"Magwaza\",\"IdNumber\":\"45454545\",\"Email\":\"magwaza@mail.com\",\"Cellphone\":\"0748508258\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-30 21:11:57\",\"AddressLine1\":\"Angular\",\"City\":\"Johannesburg\",\"PostCode\":\"2194\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"4\",\"ContactPersonId\":\"514b51ae-3a58-11e9-8de3-80fa5b45280e\",\"ContactName\":\"Bongani Mthembu\",\"ContactCell\":\"08253536168\",\"ContactRelationship\":\"Father\"}', '', 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:10:15', 'todo', '2019-04-30 19:10:15', 'todo', 1),
+('d5aacb82-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:03:11', 'todo', '2019-04-30 19:03:11', 'todo', 1),
+('da136683-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:24:47', 'todo', '2019-04-30 19:24:47', 'todo', 1),
+('de541eeb-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:24:54', 'todo', '2019-04-30 19:24:54', 'todo', 1),
+('e031e915-6b6c-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:24:57', 'todo', '2019-04-30 19:24:57', 'todo', 1),
+('e2465e2d-6b6a-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"cf9b3649-314d-44d5-abe5-3c5cc7363af6\",\"FirstName\":\"Simiso\",\"DOB\":\"1983-06-10\",\"Surname\":\"Shange\",\"IdNumber\":\"830610050208\",\"Email\":\"Simiso.Shange@gmail.com\",\"Cellphone\":\"0748258225\",\"Gender\":\"Male\",\"CreateDate\":\"2018-12-04 08:38:25\",\"AddressLine1\":\"Braamfontein Gate\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":null,\"MedicalaidName\":null,\"MedicalaidType\":null,\"MemberShipNumber\":null,\"PrimaryMember\":null,\"PrimaryMemberId\":null,\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', 'cf9b3649-314d-44d5-abe5-3c5cc7363af6', '2019-04-30 19:10:41', 'todo', '2019-04-30 19:10:41', 'todo', 1),
+('e44f4cf0-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:03:35', 'todo', '2019-04-30 19:03:35', 'todo', 1),
+('ee6af826-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:03:52', 'todo', '2019-04-30 19:03:52', 'todo', 1),
+('f8d05e3a-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:10', 'todo', '2019-04-30 19:04:10', 'todo', 1),
+('fb7d8557-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:14', 'todo', '2019-04-30 19:04:14', 'todo', 1),
+('fd70f69b-6b69-11e9-80de-f48e38e878a3', 'GET_PATIENT_INFO', '{\"PatientId\":\"8c5285ec-f4d3-11e8-bc75-f48e38e878a3\",\"FirstName\":\"Freedom\",\"DOB\":\"1992-07-25\",\"Surname\":\"Khanyile\",\"IdNumber\":\"920725050208\",\"Email\":\"freedom.khanyile1@gmail.com\",\"Cellphone\":\"0746958061\",\"Gender\":\"Male\",\"CreateDate\":\"2018-11-23 10:13:55\",\"AddressLine1\":\"12 Jacaranda Lane\",\"City\":\"Johannesburg\",\"PostCode\":\"2100\",\"MedicalaidId\":\"482cb7da-34cd-11e9-8a5d-f48e38e878a3\",\"MedicalaidName\":\"Discovery\",\"MedicalaidType\":\"Delta server\",\"MemberShipNumber\":\"4545788778\",\"PrimaryMember\":\"Freedom Khanyile\",\"PrimaryMemberId\":\"9306125458195\",\"NumAppointments\":\"0\",\"ContactPersonId\":null,\"ContactName\":null,\"ContactCell\":null,\"ContactRelationship\":null}', '', '8c5285ec-f4d3-11e8-bc75-f48e38e878a3', '2019-04-30 19:04:17', 'todo', '2019-04-30 19:04:17', 'todo', 1);
 
 -- --------------------------------------------------------
 
@@ -644,21 +689,21 @@ INSERT INTO `user` (`UserId`, `Email`, `Password`, `FirstName`, `Surname`, `Titl
 ('1965ab78-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:31', 'SYS', '2019-04-29 15:31:31', NULL, 4),
 ('1a4159dc-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:32', 'SYS', '2019-04-29 15:31:32', NULL, 4),
 ('1e35cabe-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:31:39', 'SYS', '2019-04-29 15:31:39', NULL, 4),
-('4a96f9af-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', NULL, 4),
+('4a96f9af-6a83-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Assistant', 'Baker', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:32:53', 'SYS', '2019-04-29 15:32:53', NULL, 4),
 ('bc749c0b-6a7f-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:07:26', 'SYS', '2019-04-29 15:07:26', NULL, 4),
 ('dd4b46fa-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:29:50', 'SYS', '2019-04-29 15:29:50', NULL, 4),
 ('e982e5ab-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:30:10', 'SYS', '2019-04-29 15:30:10', NULL, 4),
 ('ef451d68-6a82-11e9-8df0-80fa5b45280e', 'test@mail2.com', '123', 'Test', 'Test', 'Mrs', 'Female', '5435435', '4535435435', 'SYS', '2019-04-29 15:30:20', 'SYS', '2019-04-29 15:30:20', NULL, 4),
-('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'pass', 'n/a', 'n/a', '', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
+('fe47252d-34cc-11e9-8a5d-f48e38e878a3', 'doc@mail.com', 'pass', 'Doc', 'Doc', 'Dr.', '', 'n/a', 'n/a', '1', '2018-08-10 09:06:25', '1', '2018-08-10 09:06:25', '2', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user-practice`
+-- Table structure for table `userpractice`
 --
 
-CREATE TABLE `user-practice` (
-  `Id` varchar(225) NOT NULL,
+CREATE TABLE `userpractice` (
+  `Id` int(11) NOT NULL,
   `UserId` varchar(225) NOT NULL,
   `PracticeId` varchar(225) NOT NULL,
   `CreateDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -671,10 +716,10 @@ CREATE TABLE `user-practice` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user-roles`
+-- Table structure for table `userroles`
 --
 
-CREATE TABLE `user-roles` (
+CREATE TABLE `userroles` (
   `Id` int(11) NOT NULL,
   `UserId` varchar(225) NOT NULL,
   `RoleId` varchar(225) NOT NULL,
@@ -774,15 +819,15 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`UserId`);
 
 --
--- Indexes for table `user-practice`
+-- Indexes for table `userpractice`
 --
-ALTER TABLE `user-practice`
+ALTER TABLE `userpractice`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `user-roles`
+-- Indexes for table `userroles`
 --
-ALTER TABLE `user-roles`
+ALTER TABLE `userroles`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -793,7 +838,13 @@ ALTER TABLE `user-roles`
 -- AUTO_INCREMENT for table `que`
 --
 ALTER TABLE `que`
-  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `QuiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `RoleId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statuses`
@@ -802,9 +853,15 @@ ALTER TABLE `statuses`
   MODIFY `StatusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user-roles`
+-- AUTO_INCREMENT for table `userpractice`
 --
-ALTER TABLE `user-roles`
+ALTER TABLE `userpractice`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `userroles`
+--
+ALTER TABLE `userroles`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
