@@ -27,6 +27,18 @@ class Quee
         return $stmt;
     }
 
+    public function getQueByPatientId($PatientId)
+    {
+
+        $query = "SELECT * FROM que WHERE PatientId = ? and Status = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array($PatientId,1));
+
+        return $stmt->rowCount();
+
+    }
+
     //Add  
     public function add(
         $PatientId,
@@ -34,6 +46,9 @@ class Quee
         $Status,
         $CreateUserId
     ) {
+        if ($this->getQueByPatientId($PatientId) > 0) {
+            return $PatientName . "is  already in the que";
+        }
         $query = "INSERT INTO que (
                                         PatientId,
                                         PatientName,
