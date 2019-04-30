@@ -62,6 +62,22 @@ class User
         return null;
     }
     //get user by email
+    public function getByUserParentId($ParentId)
+    {
+
+        $query = "SELECT * FROM user WHERE ParentId = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array($ParentId));
+
+        if ($stmt->rowCount()) {
+            $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return  $user;
+        }
+
+        return null;
+    }
+    //get user by email
     public function getByUserId($UserId)
     {
 
