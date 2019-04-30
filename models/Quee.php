@@ -33,10 +33,9 @@ class Quee
         $query = "SELECT * FROM que WHERE PatientId = ? and Status = ?";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->execute(array($PatientId,1));
+        $stmt->execute(array($PatientId, 1));
 
         return $stmt->rowCount();
-
     }
 
     //Add  
