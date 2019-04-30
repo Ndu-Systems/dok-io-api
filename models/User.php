@@ -46,55 +46,56 @@ class User
         return $stmt;
     }
 
-       //get user by email
-       public function getByIdEmail($email)
-       {
-   
-           $query = "SELECT * FROM user WHERE Email = ?";
-   
-           $stmt = $this->conn->prepare($query);
-           $stmt->execute(array($email));
+    //get user by email
+    public function getByIdEmail($email)
+    {
+
+        $query = "SELECT * FROM user WHERE Email = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array($email));
 
         if ($stmt->rowCount()) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             return  $user;
         }
-   
-           return null;
-   
-       }
-          //get user by email
-          public function getByUserId($UserId)
-          {
-      
-              $query = "SELECT * FROM user WHERE UserId = ?";
-      
-              $stmt = $this->conn->prepare($query);
-              $stmt->execute(array($UserId));
-   
-           if ($stmt->rowCount()) {
-               $user = $stmt->fetch(PDO::FETCH_ASSOC);
-               return  $user;
-           }
-      
-              return null;
-      
-          }
+
+        return null;
+    }
+    //get user by email
+    public function getByUserId($UserId)
+    {
+
+        $query = "SELECT * FROM user WHERE UserId = ?";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array($UserId));
+
+        if ($stmt->rowCount()) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return  $user;
+        }
+
+        return null;
+    }
 
 
     public function  signUp(
-        $Email, 
-        $Password, 
-        $FirstName, 
-        $Surname, 
-        $Title, 
-        $Gender, 
-        $PhoneNumber, 
-        $IdNumber, 
-        $CreateUserId, 
-        $ModifyUserId, 
+        $Email,
+        $Password,
+        $FirstName,
+        $Surname,
+        $Title,
+        $Gender,
+        $PhoneNumber,
+        $IdNumber,
+        $CreateUserId,
+        $ModifyUserId,
         $StatusId
     ) {
+        if ($this->getByIdEmail($Email) > 0) {
+            return "User with email address (" . $Email . ") already exists";
+        }
         $query = "INSERT INTO user (
                                         UserId, 
                                         Email, 
@@ -114,16 +115,16 @@ class User
         try {
             $stmt = $this->conn->prepare($query);
             if ($stmt->execute(array(
-                $Email, 
-                $Password, 
-                $FirstName, 
-                $Surname, 
-                $Title, 
-                $Gender, 
-                $PhoneNumber, 
-                $IdNumber, 
-                $CreateUserId, 
-                $ModifyUserId, 
+                $Email,
+                $Password,
+                $FirstName,
+                $Surname,
+                $Title,
+                $Gender,
+                $PhoneNumber,
+                $IdNumber,
+                $CreateUserId,
+                $ModifyUserId,
                 $StatusId
             ))) {
                 return $this->getByIdEmail($Email);
