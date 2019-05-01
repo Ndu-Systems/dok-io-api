@@ -15,7 +15,7 @@ $Gender= $data->Gender;
 $PhoneNumber= $data->PhoneNumber;
 $IdNumber= $data->IdNumber;
 $CreateUserId= $data->CreateUserId;
-$ModifyUserId= $data->ModifyUserId;
+$ModifyUserId= $CreateUserId;
 $StatusId = $data->StatusId;
 
 //connect to db
@@ -44,10 +44,10 @@ echo json_encode($result);
 // log data
 $log = new Transactionhistory($db);
 if(isset($result['UserId'])){
-    $userrolescreate = $userroles->add($result['UserId'],2,$CreateUserId,$ModifyUserId,1);
-    $log_result  = $log->add('USER_REG_WEB',  json_encode($data),'', $result['UserId'], $CreateUserId, $CreateUserId, 1);
+    $userrolescreate = $userroles->add($result['UserId'],3,$CreateUserId,$ModifyUserId,1);
+    $log_result  = $log->add('ADD_USER',  json_encode($data),'', $result['UserId'], $CreateUserId, $CreateUserId, 1);
 }else{
-    $log_result  = $log->add('USER_REG_WEB',  json_encode($data),'', $result, $CreateUserId, $CreateUserId, 1);
+    $log_result  = $log->add('ADD_USER',  json_encode($data),'', $result, $CreateUserId, $CreateUserId, 1);
 }
 
 
