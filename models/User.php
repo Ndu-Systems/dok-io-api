@@ -106,7 +106,8 @@ class User
         $IdNumber,
         $CreateUserId,
         $ModifyUserId,
-        $StatusId
+        $StatusId,
+        $ParentId
     ) {
         if ($this->getByIdEmail($Email) > 0) {
             return "User with email address (" . $Email . ") already exists";
@@ -123,9 +124,10 @@ class User
                                         IdNumber, 
                                         CreateUserId, 
                                         ModifyUserId, 
-                                        StatusId
+                                        StatusId,
+                                        ParentId
                                     )
-                    VALUES (uuid(),?, ?, ?, ?,?, ?, ?,?, ?, ?, ?)           
+                    VALUES (uuid(),?, ?, ?, ?,?, ?, ?,?, ?, ?, ?,?)           
                    ";
         try {
             $stmt = $this->conn->prepare($query);
@@ -140,7 +142,8 @@ class User
                 $IdNumber,
                 $CreateUserId,
                 $ModifyUserId,
-                $StatusId
+                $StatusId,
+                $ParentId
             ))) {
                 return $this->getByIdEmail($Email);
             }

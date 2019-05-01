@@ -38,7 +38,9 @@ $result = $user->signUp(
     $IdNumber, 
     $CreateUserId, 
     $ModifyUserId, 
-    $StatusId
+    $StatusId,
+    $CreateUserId
+
 );
 echo json_encode($result);
 // log data
