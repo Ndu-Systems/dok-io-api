@@ -275,6 +275,41 @@ class Patient
 
     }
 
+   public function AddPatientDoctorPractice(
+    $UserId,
+    $patientId,
+    $practiseId
+   )
+   {
+       $query = "INSERT INTO patient_doctor_practice(
+                    Id, 
+                    PatientId, 
+                    DoctorId, 
+                    PracticeId,  
+                    CreateUserId, 
+                    ModifyUserId, 
+                    StatusId) 
+                    VALUES 
+                    (uuid(),?, ?,?, ?,?,1)";
+
+        try {
+            $stmt = $this->conn->prepare($query);
+
+            if($stmt->execute(array(             
+                $patientId,
+                $UserId,
+                $practiseId,
+                $UserId,
+                $UserId,
+            ))){
+                return 1;
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
+    
+   }
+
 
 }
 
