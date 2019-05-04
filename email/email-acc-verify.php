@@ -24,7 +24,7 @@ $link= $data->link;
      Please confirm your account with us by clicking the button below:
      <div style='width:100%; text-align: left;padding:1%;margin: 2rem 0;
      '>
-       <a href='$link'>Confirm my account</a>
+       <a  style='background-color: #03A9F4;border: none;color: white; padding: 12px 16px;font-size: 16px;cursor: pointer;box-sizing: border-box;border-radius: 30px;text-transform: capitalize;' href=$link>Confirm my account</a>
      </div>
 
 
@@ -47,7 +47,7 @@ $link= $data->link;
 
 $to = "mrnnmthembu@gmail.com ,Freedom.Khanyile1@gmail.com, ".$email;
 $subject = 'Dok-IO new account Confirmation';
-$from = 'account@dok-io.net';
+$from = 'ndumiso@ndu-systems.net';
  
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -55,10 +55,14 @@ $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $headers .= 'From: '.$from."\r\n".
     'Reply-To: '.$from."\r\n" .
     'X-Mailer: PHP/' . phpversion();
+if(isset($name)){    
 if(mail($to, $subject, $msg, $headers)){
     echo 1;
 }else{
     echo 0;
+}
+}else{
+  echo 3;
 }
 
 ?>
