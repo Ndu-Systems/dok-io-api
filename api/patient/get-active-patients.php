@@ -1,7 +1,7 @@
 <?php
 include_once '../../config/Database.php';
 include_once '../../models/Patient.php';
-
+$DocId = $_GET['docId'];
 //connect to db
 $database = new Database();
 $db = $database->connect();
@@ -10,7 +10,7 @@ $db = $database->connect();
 
 $patients = new Patient($db);
 
-$result = $patients->read(1);
+$result = $patients->read($DocId,1);
 
 if($result->rowCount()){
     $patients = $result->fetchAll(PDO::FETCH_ASSOC);
