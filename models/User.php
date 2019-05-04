@@ -151,4 +151,62 @@ class User
             return $e;
         }
     }
+
+    public function  UpdateUser(
+        $UserId,
+        $Email,
+        $Password,
+        $FirstName,
+        $Surname,
+        $Title,
+        $Gender,
+        $PhoneNumber,
+        $IdNumber,
+        $CreateUserId,
+        $ModifyUserId,
+        $StatusId,
+        $ParentId
+    ) {
+    
+        $query = "UPDATE user SET 
+                                        Email =?, 
+                                        Password=?, 
+                                        FirstName=?, 
+                                        Surname=?, 
+                                        Title=?, 
+                                        Gender=?, 
+                                        PhoneNumber=?, 
+                                        IdNumber=?, 
+                                        CreateUserId=?, 
+                                        ModifyUserId=?, 
+                                        StatusId=?,
+                                        ParentId=?
+                                        WHERE UserId = ?
+                                        
+                                             
+                   ";
+        try {
+            $stmt = $this->conn->prepare($query);
+            if ($stmt->execute(array(
+                $Email,
+                $Password,
+                $FirstName,
+                $Surname,
+                $Title,
+                $Gender,
+                $PhoneNumber,
+                $IdNumber,
+                $CreateUserId,
+                $ModifyUserId,
+                $StatusId,
+                $ParentId,
+                $UserId,
+
+            ))) {
+                return $this->getByIdEmail($Email);
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
 }
