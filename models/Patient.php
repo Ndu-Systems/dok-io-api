@@ -19,7 +19,7 @@ class Patient
     }
 
     //Get a user
-    public function read($statusId)
+    public function read($DocId,$statusId)
     {
 
         $query = "
