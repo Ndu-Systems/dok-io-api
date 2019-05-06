@@ -24,7 +24,8 @@ class User
     {
 
         $query = "SELECT         
-        u.UserId,       
+        u.UserId,  
+        u.ParentId,     
         r.RoleId as Role
         FROM 
         user u JOIN 
