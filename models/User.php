@@ -25,7 +25,7 @@ class User
 
         $query = "SELECT         
         u.UserId,       
-        r.Description as Role
+        r.RoleId as Role
         FROM 
         user u JOIN 
         userroles ur on u.UserId = ur.UserId 
