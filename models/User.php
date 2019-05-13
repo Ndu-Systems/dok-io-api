@@ -20,28 +20,27 @@ class User
     }
 
     //Get a user
-    public function read($email, $password)
+    public function read($email)
     {
 
         $query = "SELECT         
         u.UserId,  
         u.ParentId,     
-        r.RoleId as Role
+        r.RoleId as Role,
+        u.Password
         FROM 
         user u JOIN 
         userroles ur on u.UserId = ur.UserId 
         LEFT JOIN roles r on ur.RoleId = r.RoleId
         WHERE 
-        Email =  ?
-        AND 
-        Password = ?
+        Email =  ?        
         ";
 
         //Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //Execute query
-        $stmt->execute(array($email, $password));
+        $stmt->execute(array($email));
 
         return $stmt;
     }

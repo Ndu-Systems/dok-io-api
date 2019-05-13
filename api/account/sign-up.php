@@ -18,6 +18,9 @@ $CreateUserId= $data->CreateUserId;
 $ModifyUserId= $data->ModifyUserId;
 $StatusId = $data->StatusId;
 
+//Encrypt password
+$hashPassword = password_hash($Password, PASSWORD_BCRYPT);
+
 //connect to db
 $database = new Database();
 $db = $database->connect();
@@ -29,7 +32,7 @@ $userroles = new Userroles($db);
 
 $result = $user->signUp(
     $Email, 
-    $Password, 
+    $hashPassword, 
     $FirstName, 
     $Surname, 
     $Title, 
