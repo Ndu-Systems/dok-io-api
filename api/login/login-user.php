@@ -21,7 +21,7 @@ $result = $user->read($email);
 
 if($result->rowCount()){
     $user = $result->fetch(PDO::FETCH_OBJ);
-    if(password_verify($password, $user->Password)){        
+    if($user){        
         // even encrypted API must return an null Password parameter for the user Object
         $user->Password = NULL;
         echo json_encode($user);

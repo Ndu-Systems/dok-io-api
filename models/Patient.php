@@ -22,57 +22,57 @@ class Patient
     public function read($DocId,$statusId)
     {
 
-        $query = "
-        select 
-        patient.PatientId,
-        patient.Title, 
-        patient.DOB,
-        patient.StatusId, 
-        patient.Province, 
-        patient.FirstName, 
-        patient.Surname,
-        patient.IdNumber,
-        patient.Email,
-        patient.Cellphone,
-        patient.Gender,
-        patient.CreateDate,
-        patient.AddressLine1,
-        patient.City ,
-        patient.PostCode ,
+        // $query = "
+        // select 
+        // patient.PatientId,
+        // patient.Title, 
+        // patient.DOB,
+        // patient.StatusId, 
+        // patient.Province, 
+        // patient.FirstName, 
+        // patient.Surname,
+        // patient.IdNumber,
+        // patient.Email,
+        // patient.Cellphone,
+        // patient.Gender,
+        // patient.CreateDate,
+        // patient.AddressLine1,
+        // patient.City ,
+        // patient.PostCode ,
    
 
-        medicalaid.MedicalaidId, 
-        medicalaid.MedicalaidName, 
-        medicalaid.MedicalaidType, 
-        medicalaid.MemberShipNumber, 
-        medicalaid.PrimaryMember, 
-        medicalaid.PrimaryMemberId,
+        // medicalaid.MedicalaidId, 
+        // medicalaid.MedicalaidName, 
+        // medicalaid.MedicalaidType, 
+        // medicalaid.MemberShipNumber, 
+        // medicalaid.PrimaryMember, 
+        // medicalaid.PrimaryMemberId,
 
-        contactperson.ContactPersonId,
-        contactperson.Name as ContactName,
-        contactperson.CellNumber  as ContactCell,
-        contactperson.Relationship  as ContactRelationship,
+        // contactperson.ContactPersonId,
+        // contactperson.Name as ContactName,
+        // contactperson.CellNumber  as ContactCell,
+        // contactperson.Relationship  as ContactRelationship,
 
-        count(appointment.AppointmentId) as NumAppointments ,
+        // count(appointment.AppointmentId) as NumAppointments ,
       	
-        practice.Name as PracticeName,
-        user.Email as DoctorEmail
+        // practice.Name as PracticeName,
+        // user.Email as DoctorEmail
         
 
-        from patient 
-        left join  medicalaid on medicalaid.PatientId = patient.PatientId   
-        left join appointment on appointment.PatientId = patient.PatientId        
-        left join contactperson on contactperson.PatientId = patient.PatientId 
-        LEFT JOIN patient_doctor_practice on patient_doctor_practice.PatientId = patient.PatientId
-        LEFT JOIN user on user.UserId = patient_doctor_practice.DoctorId
-        LEFT JOIN practice on practice.PracticeId = patient_doctor_practice.PracticeId
+        // from patient 
+        // left join  medicalaid on medicalaid.PatientId = patient.PatientId   
+        // left join appointment on appointment.PatientId = patient.PatientId        
+        // left join contactperson on contactperson.PatientId = patient.PatientId 
+        // LEFT JOIN patient_doctor_practice on patient_doctor_practice.PatientId = patient.PatientId
+        // LEFT JOIN user on user.UserId = patient_doctor_practice.DoctorId
+        // LEFT JOIN practice on practice.PracticeId = patient_doctor_practice.PracticeId
       
-        where patient.StatusId = ?
-        and user.UserId = ?
+        // where patient.StatusId = ?
+        // and user.UserId = ?
               	
-		GROUP by patient.PatientId
-        ";
-
+		// GROUP by patient.PatientId
+        // ";
+        $query = "select * from patient";
         //Prepare statement
         $stmt = $this->conn->prepare($query);
 
